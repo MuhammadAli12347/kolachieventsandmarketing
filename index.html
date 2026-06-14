@@ -12,6 +12,9 @@
     --royal-purple: #4A1D96;
     --vivid-purple: #7C3AED;
     --glow-purple: #A78BFA;
+    --shock-pink: #FF2D78;
+    --hot-pink: #FF0066;
+    --pink-glow: #FF6EB4;
     --ghost-white: #F5F0FF;
     --mid-gray: #9D8EC7;
     --card-bg: #080612;
@@ -29,7 +32,7 @@
     line-height: 1.65;
   }
 
-  /* NAV */
+  /* ===================== NAV ===================== */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
@@ -37,6 +40,11 @@
     background: rgba(5,4,10,0.88);
     backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--border);
+    animation: navSlideDown 0.7s ease both;
+  }
+  @keyframes navSlideDown {
+    from { transform: translateY(-100%); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
   }
   .nav-logo {
     font-family: 'Playfair Display', serif;
@@ -50,19 +58,25 @@
     font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em;
     text-transform: uppercase; color: var(--mid-gray);
     text-decoration: none; transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content:''; position:absolute; left:0; bottom:-3px; width:0; height:1px;
+    background: var(--glow-purple); transition: width 0.25s;
   }
   .nav-links a:hover { color: var(--glow-purple); }
+  .nav-links a:hover::after { width: 100%; }
   .nav-cta {
     background: var(--vivid-purple); color: #fff; border: none;
     padding: 0.55rem 1.4rem; border-radius: 2px;
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em;
-    text-transform: uppercase; cursor: pointer; transition: background 0.2s;
+    text-transform: uppercase; cursor: pointer; transition: background 0.2s, transform 0.2s;
     text-decoration: none;
   }
-  .nav-cta:hover { background: var(--royal-purple); }
+  .nav-cta:hover { background: var(--royal-purple); transform: translateY(-1px); }
 
-  /* HERO */
+  /* ===================== HERO ===================== */
   .hero {
     min-height: 100vh; display: flex; align-items: center; justify-content: center;
     padding: 8rem 4rem 6rem; position: relative;
@@ -75,6 +89,11 @@
       linear-gradient(90deg, rgba(124,58,237,0.08) 1px, transparent 1px);
     background-size: 60px 60px;
     mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 40%, transparent 100%);
+    animation: gridPulse 6s ease-in-out infinite;
+  }
+  @keyframes gridPulse {
+    0%,100% { opacity: 0.7; }
+    50% { opacity: 1; }
   }
   .hero-orb {
     position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none;
@@ -91,10 +110,28 @@
     bottom: -80px; right: -80px;
     animation: drift 9s ease-in-out infinite alternate-reverse;
   }
+  .hero-orb-3 {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(255,45,120,0.18) 0%, transparent 70%);
+    top: 40%; left: 60%;
+    animation: drift 15s ease-in-out infinite alternate;
+  }
   @keyframes drift {
     from { transform: translate(0,0) scale(1); }
     to   { transform: translate(30px, 20px) scale(1.05); }
   }
+
+  /* Floating particles */
+  .particle {
+    position: absolute; border-radius: 50%; pointer-events: none;
+    background: var(--vivid-purple); opacity: 0.35;
+    animation: floatUp linear infinite;
+  }
+  @keyframes floatUp {
+    0%   { transform: translateY(0) scale(1); opacity: 0.35; }
+    100% { transform: translateY(-120vh) scale(0.3); opacity: 0; }
+  }
+
   .hero-inner { position: relative; z-index: 1; max-width: 900px; text-align: center; }
   .hero-eyebrow {
     display: inline-flex; align-items: center; gap: 0.6rem;
@@ -104,22 +141,34 @@
     margin-bottom: 1.8rem; padding: 0.4rem 1rem;
     border: 1px solid rgba(167,139,250,0.35); border-radius: 100px;
     background: rgba(124,58,237,0.08);
+    animation: fadeUp 0.9s 0.3s ease both;
   }
   .hero-title {
     font-family: 'Playfair Display', serif;
     font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 900;
     line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 1.6rem;
     color: var(--ghost-white);
+    animation: fadeUp 0.9s 0.5s ease both;
   }
   .hero-title .accent {
     background: linear-gradient(135deg, var(--vivid-purple), var(--glow-purple));
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    0%,100% { filter: brightness(1); }
+    50% { filter: brightness(1.3); }
   }
   .hero-sub {
     font-size: 1.1rem; color: var(--mid-gray); max-width: 600px;
     margin: 0 auto 2.8rem; font-weight: 300;
+    animation: fadeUp 0.9s 0.7s ease both;
   }
-  .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; animation: fadeUp 0.9s 0.9s ease both; }
+  @keyframes fadeUp {
+    from { opacity:0; transform: translateY(30px); }
+    to   { opacity:1; transform: translateY(0); }
+  }
   .btn-primary {
     background: linear-gradient(135deg, var(--vivid-purple), var(--royal-purple));
     color: #fff; padding: 0.9rem 2.2rem; border: none; border-radius: 2px;
@@ -128,31 +177,37 @@
     box-shadow: 0 0 30px rgba(124,58,237,0.4);
     transition: transform 0.2s, box-shadow 0.2s;
   }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(167,139,250,0.6); }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 60px rgba(167,139,250,0.7); }
   .btn-ghost {
     background: transparent; color: var(--ghost-white); padding: 0.9rem 2.2rem;
     border: 1px solid var(--border); border-radius: 2px;
     font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 500;
     letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; text-decoration: none;
-    transition: border-color 0.2s, color 0.2s;
+    transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
   }
-  .btn-ghost:hover { border-color: var(--glow-purple); color: var(--glow-purple); }
+  .btn-ghost:hover { border-color: var(--glow-purple); color: var(--glow-purple); box-shadow: 0 0 20px rgba(167,139,250,0.2); }
   .hero-stats {
-    display: flex; justify-content: center; gap: 4rem;
+    display: flex; justify-content: center;
     margin-top: 5rem; padding-top: 3rem;
     border-top: 1px solid var(--border); flex-wrap: wrap; gap: 2rem;
+    animation: fadeUp 0.9s 1.1s ease both;
   }
   .stat-item { text-align: center; }
   .stat-num {
     font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900;
     color: var(--glow-purple); display: block;
+    animation: countUp 1.5s 1.5s ease both;
+  }
+  @keyframes countUp {
+    from { opacity:0; transform: scale(0.7); }
+    to   { opacity:1; transform: scale(1); }
   }
   .stat-label {
     font-size: 0.78rem; color: var(--mid-gray); letter-spacing: 0.1em;
     text-transform: uppercase; font-family: 'Space Grotesk', sans-serif;
   }
 
-  /* SECTIONS */
+  /* ===================== SECTIONS ===================== */
   section { padding: 6rem 4rem; }
   .section-header { text-align: center; margin-bottom: 4rem; }
   .section-tag {
@@ -166,10 +221,11 @@
   }
   .section-desc { color: var(--mid-gray); max-width: 560px; margin: 0 auto; font-size: 1rem; }
 
-  /* SERVICES STRIP */
+  /* ===================== SERVICES STRIP ===================== */
   .services-strip {
     background: var(--deep-purple); padding: 3rem 4rem;
     border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    overflow: hidden;
   }
   .services-marquee-label {
     font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem;
@@ -181,9 +237,15 @@
     font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; color: var(--glow-purple);
     padding: 0.4rem 1.2rem; border: 1px solid rgba(167,139,250,0.3);
     border-radius: 100px; white-space: nowrap;
+    transition: background 0.25s, border-color 0.25s, color 0.25s, transform 0.2s;
+    cursor: default;
+  }
+  .strip-tag:hover {
+    background: rgba(124,58,237,0.2); border-color: var(--vivid-purple);
+    color: #fff; transform: translateY(-2px);
   }
 
-  /* SERVICE BLOCK */
+  /* ===================== SERVICE BLOCK ===================== */
   .service-block { max-width: 1200px; margin: 0 auto; }
   .service-section { background: var(--obsidian); border-top: 1px solid var(--border); }
   .service-section:nth-child(even) { background: var(--card-bg); }
@@ -196,7 +258,9 @@
     border: 1px solid var(--border); border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
     font-size: 1.6rem; margin-bottom: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
   }
+  .service-icon:hover { transform: rotate(-5deg) scale(1.1); box-shadow: 0 0 20px rgba(124,58,237,0.5); }
   .service-number {
     font-family: 'Space Grotesk', sans-serif; font-size: 0.7rem; font-weight: 600;
     letter-spacing: 0.2em; text-transform: uppercase; color: var(--vivid-purple); margin-bottom: 0.4rem;
@@ -212,21 +276,27 @@
   .capability-list li {
     display: flex; align-items: flex-start; gap: 0.75rem;
     font-size: 0.9rem; color: #D4C9F0;
+    transition: color 0.2s, transform 0.2s;
   }
+  .capability-list li:hover { color: var(--ghost-white); transform: translateX(4px); }
   .capability-list li::before {
     content: ''; display: block; width: 6px; height: 6px;
     background: var(--vivid-purple); border-radius: 50%;
     margin-top: 0.45rem; flex-shrink: 0;
+    transition: background 0.2s;
   }
+  .capability-list li:hover::before { background: var(--glow-purple); }
   .capability-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
   .cap-tag {
     font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem;
     padding: 0.3rem 0.85rem;
     background: rgba(74,29,150,0.2); border: 1px solid rgba(124,58,237,0.3);
     border-radius: 2px; color: var(--glow-purple); letter-spacing: 0.04em;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
   }
+  .cap-tag:hover { background: rgba(124,58,237,0.3); border-color: var(--vivid-purple); transform: translateY(-1px); }
 
-  /* GALLERY */
+  /* ===================== GALLERY ===================== */
   .gallery-grid {
     display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 0.75rem;
   }
@@ -234,10 +304,10 @@
     background: var(--card-bg); border: 1px solid var(--border);
     border-radius: 4px; overflow: hidden; position: relative;
     aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center;
-    cursor: pointer; transition: border-color 0.3s, transform 0.3s;
+    cursor: pointer; transition: border-color 0.3s, transform 0.4s, box-shadow 0.3s;
   }
   .gallery-item:first-child { grid-column: 1 / -1; aspect-ratio: 16/7; }
-  .gallery-item:hover { border-color: var(--vivid-purple); transform: scale(1.01); }
+  .gallery-item:hover { border-color: var(--vivid-purple); transform: scale(1.02); box-shadow: 0 8px 30px rgba(124,58,237,0.3); }
   .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.75; transition: opacity 0.3s; }
   .gallery-item:hover img { opacity: 1; }
   .gallery-placeholder {
@@ -261,24 +331,7 @@
     letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.7);
   }
 
-  /* LOCATIONS TABLE */
-  .locations-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; font-size: 0.88rem; }
-  .locations-table th {
-    font-family: 'Space Grotesk', sans-serif; font-size: 0.7rem; letter-spacing: 0.15em;
-    text-transform: uppercase; color: var(--mid-gray); text-align: left;
-    padding: 0.6rem 1rem; border-bottom: 1px solid var(--border);
-  }
-  .locations-table td {
-    padding: 0.7rem 1rem; border-bottom: 1px solid rgba(124,58,237,0.1);
-    color: #D4C9F0; vertical-align: middle;
-  }
-  .loc-dot {
-    display: inline-block; width: 7px; height: 7px; border-radius: 50%;
-    background: var(--glow-purple); box-shadow: 0 0 6px var(--glow-purple);
-    margin-right: 0.5rem; vertical-align: middle;
-  }
-
-  /* ABOUT */
+  /* ===================== ABOUT ===================== */
   .about-section {
     background: var(--deep-purple); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
   }
@@ -295,6 +348,11 @@
   .pillar-card {
     background: rgba(124,58,237,0.1); border: 1px solid var(--border);
     border-radius: 6px; padding: 1.2rem;
+    transition: border-color 0.3s, transform 0.3s, background 0.3s;
+  }
+  .pillar-card:hover {
+    border-color: var(--vivid-purple); transform: translateY(-3px);
+    background: rgba(124,58,237,0.18);
   }
   .pillar-card h4 {
     font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; font-weight: 600;
@@ -302,26 +360,270 @@
   }
   .pillar-card p { font-size: 0.83rem; color: var(--mid-gray); line-height: 1.5; }
 
-  /* WHY */
+  /* ===================== WHY ===================== */
   .why-section { background: var(--obsidian); }
   .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; max-width: 1100px; margin: 0 auto; }
   .why-card {
     background: var(--card-bg); border: 1px solid var(--border);
     border-radius: 6px; padding: 2rem 1.5rem; position: relative; overflow: hidden;
-    transition: border-color 0.3s, transform 0.3s;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
   }
   .why-card::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
     background: linear-gradient(90deg, transparent, var(--vivid-purple), transparent);
     opacity: 0; transition: opacity 0.3s;
   }
-  .why-card:hover { border-color: rgba(124,58,237,0.55); transform: translateY(-4px); }
+  .why-card:hover { border-color: rgba(124,58,237,0.55); transform: translateY(-6px); box-shadow: 0 20px 50px rgba(124,58,237,0.2); }
   .why-card:hover::before { opacity: 1; }
-  .why-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .why-icon { font-size: 2rem; margin-bottom: 1rem; display: block; transition: transform 0.3s; }
+  .why-card:hover .why-icon { transform: scale(1.2) rotate(-5deg); }
   .why-title { font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--ghost-white); margin-bottom: 0.6rem; }
   .why-text { font-size: 0.85rem; color: var(--mid-gray); line-height: 1.6; }
 
-  /* CONTACT */
+  /* ===================== BRAND LOGOS SCROLLER ===================== */
+  .brands-section {
+    background: var(--deep-purple);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 0;
+    overflow: hidden;
+  }
+  .brands-header {
+    text-align: center; padding: 0 4rem; margin-bottom: 3rem;
+  }
+  .brands-scroll-track {
+    position: relative; overflow: hidden;
+  }
+  .brands-scroll-track::before,
+  .brands-scroll-track::after {
+    content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none;
+  }
+  .brands-scroll-track::before { left: 0; background: linear-gradient(90deg, var(--deep-purple), transparent); }
+  .brands-scroll-track::after  { right: 0; background: linear-gradient(-90deg, var(--deep-purple), transparent); }
+  .brands-scroll-inner {
+    display: flex; gap: 0; width: max-content;
+    animation: scrollLeft 30s linear infinite;
+  }
+  .brands-scroll-track:hover .brands-scroll-inner { animation-play-state: paused; }
+  @keyframes scrollLeft {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .brand-logo-slot {
+    width: 180px; height: 80px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 1.5rem;
+    background: rgba(124,58,237,0.07); border: 1px solid rgba(124,58,237,0.18);
+    border-radius: 6px;
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(167,139,250,0.45); text-align: center;
+    transition: border-color 0.3s, background 0.3s, color 0.3s;
+    cursor: default; padding: 0.5rem 1rem;
+  }
+  .brand-logo-slot:hover {
+    border-color: rgba(124,58,237,0.5); background: rgba(124,58,237,0.15);
+    color: var(--glow-purple);
+  }
+  .brand-logo-slot img {
+    max-width: 130px; max-height: 55px; object-fit: contain;
+    opacity: 0.55; filter: grayscale(100%) brightness(2);
+    transition: opacity 0.3s, filter 0.3s;
+  }
+  .brand-logo-slot:hover img { opacity: 1; filter: grayscale(0%) brightness(1.1); }
+
+  /* ===================== UPCOMING ACTIVITIES ===================== */
+  .upcoming-section {
+    background: var(--obsidian);
+    border-top: 1px solid var(--border);
+    padding: 6rem 4rem;
+  }
+  .upcoming-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .upcoming-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    transition: border-color 0.3s, transform 0.4s, box-shadow 0.3s;
+    cursor: default;
+  }
+  .upcoming-card:hover {
+    border-color: var(--vivid-purple);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(124,58,237,0.25);
+  }
+  .upcoming-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--vivid-purple), var(--glow-purple));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .upcoming-card:hover::before { transform: scaleX(1); }
+  .upcoming-thumb {
+    width: 100%; aspect-ratio: 16/9;
+    background: linear-gradient(135deg, rgba(74,29,150,0.3), rgba(5,4,10,0.9));
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .upcoming-thumb-inner {
+    display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+    color: rgba(167,139,250,0.35);
+  }
+  .upcoming-thumb-inner svg { width: 36px; height: 36px; }
+  .upcoming-thumb-inner span {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.68rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .upcoming-badge {
+    position: absolute; top: 0.75rem; left: 0.75rem;
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.65rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.25rem 0.7rem; border-radius: 100px;
+  }
+  .badge-upcoming { background: rgba(124,58,237,0.3); border: 1px solid var(--vivid-purple); color: var(--glow-purple); }
+  .badge-open     { background: rgba(16,185,129,0.2);  border: 1px solid rgba(16,185,129,0.5); color: #6EE7B7; }
+  .badge-soon     { background: rgba(245,158,11,0.2);  border: 1px solid rgba(245,158,11,0.5); color: #FCD34D; }
+  .upcoming-body { padding: 1.5rem; }
+  .upcoming-date {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--glow-purple); margin-bottom: 0.5rem;
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  .upcoming-date::before { content: ''; display:block; width:5px; height:5px; border-radius:50%; background:var(--glow-purple); flex-shrink:0; }
+  .upcoming-title {
+    font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700;
+    color: var(--ghost-white); margin-bottom: 0.5rem; line-height: 1.3;
+  }
+  .upcoming-desc {
+    font-size: 0.83rem; color: var(--mid-gray); line-height: 1.6; margin-bottom: 1rem;
+  }
+  .upcoming-meta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .upcoming-meta-tag {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.68rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(167,139,250,0.6); display: flex; align-items: center; gap: 0.3rem;
+  }
+
+  /* ===================== TEAM — SHOCK PINK PURPLE ===================== */
+  .team-section {
+    background: linear-gradient(160deg, #0A0012 0%, #110008 40%, #06000F 100%);
+    border-top: 1px solid rgba(255,45,120,0.2);
+    padding: 6rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .team-section::before {
+    content: '';
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 30%, rgba(255,45,120,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 60% at 80% 70%, rgba(124,58,237,0.15) 0%, transparent 70%);
+  }
+  .team-section .section-tag { color: var(--pink-glow); }
+  .team-section .section-title { color: var(--ghost-white); }
+  .team-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;
+  }
+  .flip-card { perspective: 1000px; cursor: pointer; height: 420px; }
+  .flip-inner {
+    position: relative; width: 100%; height: 100%;
+    transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  }
+  .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+  .flip-front, .flip-back {
+    position: absolute; inset: 0; backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; border-radius: 10px; overflow: hidden;
+  }
+  .flip-front {
+    background: #0D0015;
+    border: 1px solid rgba(255,45,120,0.25);
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
+    padding: 0 0 2rem 0;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  .flip-card:hover .flip-front {
+    border-color: rgba(255,45,120,0.6);
+    box-shadow: 0 0 40px rgba(255,45,120,0.2), 0 0 80px rgba(124,58,237,0.1);
+  }
+  .member-photo-wrap { position: absolute; top: 0; left: 0; right: 0; height: 72%; overflow: hidden; }
+  .member-photo-wrap::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60%;
+    background: linear-gradient(to top, #0D0015 0%, transparent 100%); z-index: 1;
+  }
+  .member-photo-placeholder {
+    width: 100%; height: 100%;
+    background: linear-gradient(160deg, rgba(255,45,120,0.15) 0%, rgba(74,29,150,0.25) 50%, rgba(5,4,10,0.9) 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;
+  }
+  .member-photo-placeholder svg { width: 60px; height: 60px; color: rgba(255,110,180,0.3); }
+  .member-photo-placeholder span {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.68rem;
+    letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,110,180,0.3);
+  }
+  .member-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+  .member-ring {
+    position: absolute; bottom: -1px; left: 50%; transform: translateX(-50%);
+    width: 80px; height: 3px;
+    background: linear-gradient(90deg, transparent, var(--shock-pink), var(--glow-purple), transparent);
+    z-index: 2;
+    box-shadow: 0 0 12px rgba(255,45,120,0.8);
+    animation: ringPulse 2s ease-in-out infinite;
+  }
+  @keyframes ringPulse {
+    0%,100% { opacity: 0.8; box-shadow: 0 0 8px rgba(255,45,120,0.6); }
+    50% { opacity: 1; box-shadow: 0 0 20px rgba(255,45,120,1); }
+  }
+  .member-front-info { position: relative; z-index: 2; text-align: center; padding: 0 1.2rem; }
+  .member-name {
+    font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700;
+    color: var(--ghost-white); margin-bottom: 0.3rem;
+  }
+  .member-role {
+    display: block; font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--pink-glow); margin-bottom: 0.8rem;
+  }
+  .member-click-hint {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.68rem; letter-spacing: 0.08em;
+    color: rgba(255,110,180,0.45); text-transform: uppercase; margin-top: 0.4rem;
+  }
+  .flip-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(160deg, #1A0030 0%, #0A0018 50%, #120005 100%);
+    border: 1px solid rgba(255,45,120,0.45);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: inset 0 0 40px rgba(255,45,120,0.08);
+  }
+  .flip-back-inner { padding: 2rem 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.6rem; }
+  .member-back-icon { font-size: 2rem; margin-bottom: 0.2rem; }
+  .member-name-back { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--ghost-white); }
+  .member-role-back {
+    display: block; font-family: 'Space Grotesk', sans-serif; font-size: 0.68rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--pink-glow); margin-bottom: 0.3rem;
+  }
+  .member-bio { font-size: 0.82rem; color: var(--mid-gray); line-height: 1.6; }
+  .member-expertise { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-top: 0.4rem; }
+  .member-expertise span {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.65rem; padding: 0.25rem 0.65rem;
+    background: rgba(255,45,120,0.12); border: 1px solid rgba(255,110,180,0.35);
+    border-radius: 100px; color: var(--pink-glow); letter-spacing: 0.04em;
+  }
+  .member-click-hint-back {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.65rem; letter-spacing: 0.08em;
+    color: rgba(255,110,180,0.4); text-transform: uppercase; margin-top: 0.4rem;
+  }
+
+  /* ===================== CONTACT ===================== */
   .contact-section { background: var(--deep-purple); border-top: 1px solid var(--border); }
   .contact-inner { max-width: 700px; margin: 0 auto; text-align: center; }
   .contact-form { display: flex; flex-direction: column; gap: 1rem; margin-top: 2.5rem; text-align: left; }
@@ -335,9 +637,11 @@
   .form-group input, .form-group textarea, .form-group select {
     background: rgba(5,4,10,0.6); border: 1px solid var(--border); border-radius: 2px;
     padding: 0.75rem 1rem; color: var(--ghost-white); font-family: 'Inter', sans-serif;
-    font-size: 0.9rem; outline: none; transition: border-color 0.2s;
+    font-size: 0.9rem; outline: none; transition: border-color 0.2s, box-shadow 0.2s;
   }
-  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--vivid-purple); }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    border-color: var(--vivid-purple); box-shadow: 0 0 0 2px rgba(124,58,237,0.15);
+  }
   .form-group textarea { min-height: 120px; resize: vertical; }
   .form-group select { cursor: pointer; }
   .form-group select option { background: var(--deep-purple); }
@@ -349,9 +653,9 @@
     box-shadow: 0 0 30px rgba(124,58,237,0.4);
     transition: box-shadow 0.2s, transform 0.2s; align-self: flex-start; margin-top: 0.5rem;
   }
-  .form-submit:hover { box-shadow: 0 0 50px rgba(124,58,237,0.6); transform: translateY(-2px); }
+  .form-submit:hover { box-shadow: 0 0 60px rgba(124,58,237,0.7); transform: translateY(-3px); }
 
-  /* FOOTER */
+  /* ===================== FOOTER ===================== */
   footer { background: #020108; border-top: 1px solid var(--border); padding: 3rem 4rem; }
   .footer-inner {
     max-width: 1200px; margin: 0 auto;
@@ -368,87 +672,22 @@
   .footer-links a:hover { color: var(--glow-purple); }
   .footer-copy { font-size: 0.78rem; color: rgba(167,139,250,0.4); font-family: 'Space Grotesk', sans-serif; }
 
-  /* DIVIDER */
+  /* ===================== DIVIDER ===================== */
   .purple-divider {
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--vivid-purple), transparent);
     opacity: 0.4; margin: 0 4rem;
   }
 
-  /* TEAM */
-  .team-section { background: var(--deep-purple); border-top: 1px solid var(--border); padding: 6rem 4rem; }
-  .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
-  .flip-card { perspective: 1000px; cursor: pointer; height: 420px; }
-  .flip-inner {
-    position: relative; width: 100%; height: 100%;
-    transform-style: preserve-3d; transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
-  }
-  .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
-  .flip-front, .flip-back {
-    position: absolute; inset: 0; backface-visibility: hidden;
-    -webkit-backface-visibility: hidden; border-radius: 8px; overflow: hidden;
-  }
-  .flip-front {
-    background: var(--card-bg); border: 1px solid var(--border);
-    display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
-    padding: 0 0 2rem 0; transition: border-color 0.3s;
-  }
-  .flip-card:hover .flip-front { border-color: var(--vivid-purple); }
-  .member-photo-wrap { position: absolute; top: 0; left: 0; right: 0; height: 72%; overflow: hidden; }
-  .member-photo-wrap::after {
-    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60%;
-    background: linear-gradient(to top, var(--card-bg) 0%, transparent 100%); z-index: 1;
-  }
-  .member-photo-placeholder {
-    width: 100%; height: 100%;
-    background: linear-gradient(160deg, rgba(74,29,150,0.3) 0%, rgba(5,4,10,0.9) 100%);
-    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;
-  }
-  .member-photo-placeholder svg { width: 60px; height: 60px; color: rgba(167,139,250,0.35); }
-  .member-photo-placeholder span {
-    font-family: 'Space Grotesk', sans-serif; font-size: 0.68rem;
-    letter-spacing: 0.12em; text-transform: uppercase; color: rgba(167,139,250,0.35);
-  }
-  .member-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
-  .member-ring {
-    position: absolute; bottom: -1px; left: 50%; transform: translateX(-50%);
-    width: 80px; height: 3px;
-    background: linear-gradient(90deg, transparent, var(--vivid-purple), transparent); z-index: 2;
-  }
-  .member-front-info { position: relative; z-index: 2; text-align: center; padding: 0 1.2rem; }
-  .member-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--ghost-white); margin-bottom: 0.3rem; }
-  .member-role {
-    display: block; font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem; font-weight: 600;
-    letter-spacing: 0.1em; text-transform: uppercase; color: var(--glow-purple); margin-bottom: 0.8rem;
-  }
-  .member-click-hint { font-family: 'Space Grotesk', sans-serif; font-size: 0.68rem; letter-spacing: 0.08em; color: rgba(167,139,250,0.45); text-transform: uppercase; margin-top: 0.4rem; }
-  .flip-back {
-    transform: rotateY(180deg);
-    background: linear-gradient(160deg, #0E0520 0%, #06030F 100%);
-    border: 1px solid rgba(124,58,237,0.45);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .flip-back-inner { padding: 2rem 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.6rem; }
-  .member-back-icon { font-size: 2rem; margin-bottom: 0.2rem; }
-  .member-name-back { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--ghost-white); }
-  .member-role-back {
-    display: block; font-family: 'Space Grotesk', sans-serif; font-size: 0.68rem; font-weight: 600;
-    letter-spacing: 0.1em; text-transform: uppercase; color: var(--glow-purple); margin-bottom: 0.3rem;
-  }
-  .member-bio { font-size: 0.82rem; color: var(--mid-gray); line-height: 1.6; }
-  .member-expertise { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-top: 0.4rem; }
-  .member-expertise span {
-    font-family: 'Space Grotesk', sans-serif; font-size: 0.65rem; padding: 0.25rem 0.65rem;
-    background: rgba(124,58,237,0.18); border: 1px solid rgba(167,139,250,0.35);
-    border-radius: 100px; color: var(--glow-purple); letter-spacing: 0.04em;
-  }
-  .member-click-hint-back { font-family: 'Space Grotesk', sans-serif; font-size: 0.65rem; letter-spacing: 0.08em; color: rgba(167,139,250,0.4); text-transform: uppercase; margin-top: 0.4rem; }
+  /* ===================== SCROLL REVEAL ===================== */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* RESPONSIVE */
+  /* ===================== RESPONSIVE ===================== */
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
-    section { padding: 4rem 1.5rem; }
+    section, .team-section, .upcoming-section, .brands-section { padding: 4rem 1.5rem; }
     .hero { padding: 7rem 1.5rem 4rem; }
     .service-layout { flex-direction: column !important; }
     .about-layout { flex-direction: column; gap: 2.5rem; }
@@ -461,7 +700,7 @@
     .services-strip { padding: 2.5rem 1.5rem; }
     .purple-divider { margin: 0 1.5rem; }
     .team-grid { grid-template-columns: 1fr 1fr; }
-    .team-section { padding: 4rem 1.5rem; }
+    .upcoming-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 600px) {
     .why-grid { grid-template-columns: 1fr; }
@@ -473,18 +712,21 @@
     .flip-card { height: 380px; }
   }
 
-  /* SCROLL REVEAL */
-  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
 </style>
 </head>
 <body>
+
+<!-- Floating particles injected by JS -->
 
 <!-- NAV -->
 <nav>
   <div class="nav-logo">Kolachi <span>&</span> Marketing</div>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
+    <li><a href="#influencer">Influencer PR</a></li>
     <li><a href="#ooh">OOH</a></li>
     <li><a href="#ecommerce">E-commerce</a></li>
     <li><a href="#events">Events</a></li>
@@ -501,6 +743,7 @@
   <div class="hero-grid-bg"></div>
   <div class="hero-orb hero-orb-1"></div>
   <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
   <div class="hero-inner">
     <div class="hero-eyebrow">🌙 Pakistan's Premier Marketing Agency</div>
     <h1 class="hero-title">
@@ -511,7 +754,7 @@
       From billboards to viral campaigns — Kolachi Events & Marketing delivers 360° brand experiences across Pakistan and beyond.
     </p>
     <div class="hero-actions">
-      <a href="#services" class="btn-primary">Explore Services</a>
+      <a href="#influencer" class="btn-primary">Influencer PR</a>
       <a href="#contact" class="btn-ghost">Start a Project</a>
     </div>
     <div class="hero-stats">
@@ -612,28 +855,16 @@
       <div class="service-number">Service 02</div>
       <div class="service-icon">🏙️</div>
       <h2 class="service-heading">Out-of-Home (OOH) Branding</h2>
-      <p class="service-intro">Dominate Pakistan's most-visited public spaces with our premium billboard and digital screen inventory. From bustling shopping malls to key arterial roads, we put your brand in front of millions.</p>
+      <p class="service-intro">We connect your brand with Pakistan's most-visited public spaces. Through our established network of premium billboard owners and SMD screen operators, we place your brand face exactly where millions of eyes land — from bustling shopping malls to key arterial roads.</p>
       <ul class="capability-list">
-        <li>Static and digital billboard placement at high-footfall locations across Pakistan</li>
-        <li>SMD digital screens in premium mall environments with real-time content updates</li>
+        <li>Direct access to premium billboard and SMD screen inventory through our exclusive partner network</li>
+        <li>We negotiate on your behalf with site owners and operators — no middlemen, straightforward rates</li>
         <li>Transit media, large-format prints, and roadside hoardings in Karachi and beyond</li>
-        <li>Creative production — design, print, and installation handled in-house</li>
+        <li>Creative production — design, print, and installation coordination</li>
         <li>Campaign scheduling, slot booking, and audience analytics reports</li>
         <li>Hyperlocal targeting by city zone, mall cluster, or route corridor</li>
       </ul>
-      <table class="locations-table">
-        <thead>
-          <tr><th>Location</th><th>City</th><th>Format</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><span class="loc-dot"></span>Gujranwala Mall</td><td>Gujranwala</td><td>SMD Digital Screen</td></tr>
-          <tr><td><span class="loc-dot"></span>King's Mall</td><td>Karachi</td><td>Billboard + SMD</td></tr>
-          <tr><td><span class="loc-dot"></span>Bollywood Mall</td><td>Karachi</td><td>SMD Digital Screen</td></tr>
-          <tr><td><span class="loc-dot"></span>Atrium Mall</td><td>Karachi</td><td>Digital + Static</td></tr>
-          <tr><td><span class="loc-dot"></span>Mega Mall</td><td>Karachi</td><td>Billboard + SMD</td></tr>
-        </tbody>
-      </table>
-      <div class="capability-tags" style="margin-top:1.2rem;">
+      <div class="capability-tags">
         <span class="cap-tag">Billboards</span>
         <span class="cap-tag">SMD Screens</span>
         <span class="cap-tag">Mall Media</span>
@@ -673,21 +904,21 @@
 
 <!-- SERVICE 3: E-COMMERCE -->
 <section class="service-section" id="ecommerce">
-  <div class="service-layout service-block reveal" style="flex-direction:row-reverse;">
+  <div class="service-layout service-block reveal">
     <div class="service-content">
       <div class="service-number">Service 03</div>
       <div class="service-icon">🛒</div>
       <h2 class="service-heading">E-commerce for Brands</h2>
       <p class="service-intro">From initial startup to an established brand — we build, grow, and scale your entire e-commerce presence. Whether you're launching your first product or expanding an existing business, we provide end-to-end marketing strategies that turn browsers into buyers and buyers into loyal customers.</p>
       <ul class="capability-list">
-        <li>Full e-commerce store setup on Shopify, WooCommerce, and local Pakistani platforms — from zero to launch-ready</li>
-        <li>Brand identity development — logo, packaging, tone of voice, and visual language crafted for online retail</li>
-        <li>Product photography direction, copywriting, and listing optimisation for maximum conversions</li>
-        <li>Performance-driven paid media — Meta Shopping Ads, Google Shopping, and TikTok Shop campaigns</li>
+        <li>Full e-commerce store setup on Shopify, WooCommerce, and local Pakistani platforms</li>
+        <li>Brand identity development — logo, packaging, tone of voice, and visual language</li>
+        <li>Product photography direction, copywriting, and listing optimisation</li>
+        <li>Performance-driven paid media — Meta Shopping Ads, Google Shopping, and TikTok Shop</li>
         <li>Marketplace onboarding and management on Daraz, Amazon, and other regional platforms</li>
         <li>Customer lifecycle marketing — abandoned cart flows, loyalty programmes, and re-engagement automation</li>
-        <li>Monthly sales funnel audits with conversion rate optimisation (CRO) and scaling roadmaps</li>
-        <li>Influencer-led product seeding and launch campaigns to build initial brand credibility</li>
+        <li>Monthly sales funnel audits with conversion rate optimisation and scaling roadmaps</li>
+        <li>Influencer-led product seeding and launch campaigns</li>
       </ul>
       <div class="capability-tags">
         <span class="cap-tag">Store Setup</span>
@@ -701,27 +932,9 @@
     </div>
     <div class="service-visual">
       <div class="gallery-grid">
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>Store Launch — Insert Photo</span>
-          </div>
-          <div class="gallery-overlay"><span>E-commerce Launch</span></div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>Product Campaign — Insert Photo</span>
-          </div>
-          <div class="gallery-overlay"><span>Product Marketing</span></div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>Brand Growth — Insert Photo</span>
-          </div>
-          <div class="gallery-overlay"><span>Brand Scaling</span></div>
-        </div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Store Launch — Insert Photo</span></div><div class="gallery-overlay"><span>E-commerce Launch</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Product Campaign — Insert Photo</span></div><div class="gallery-overlay"><span>Product Marketing</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Brand Growth — Insert Photo</span></div><div class="gallery-overlay"><span>Brand Scaling</span></div></div>
       </div>
     </div>
   </div>
@@ -731,14 +944,14 @@
 
 <!-- SERVICE 4: DIGITAL -->
 <section class="service-section" id="digital">
-  <div class="service-layout service-block reveal">
+  <div class="service-layout service-block reveal" style="flex-direction:row-reverse;">
     <div class="service-content">
       <div class="service-number">Service 04</div>
       <div class="service-icon">📈</div>
       <h2 class="service-heading">Digital & Performance Marketing</h2>
       <p class="service-intro">Data-driven strategies that turn ad spend into measurable growth. Our performance team manages everything from search visibility to precision-targeted paid campaigns, optimising every rupee you invest.</p>
       <ul class="capability-list">
-        <li>Search Engine Optimisation (SEO) — technical audits, content strategy, on-page and off-page ranking</li>
+        <li>Search Engine Optimisation — technical audits, content strategy, on-page and off-page ranking</li>
         <li>Meta Ads (Facebook & Instagram) — audience segmentation, creative testing, conversion campaigns</li>
         <li>Google Ads — Search, Display, Shopping, and YouTube pre-roll campaign management</li>
         <li>Retargeting and lookalike audience strategies to maximise ROAS</li>
@@ -767,9 +980,9 @@
 
 <div class="purple-divider"></div>
 
-<!-- SERVICE 4: EVENTS -->
+<!-- SERVICE 5: EVENTS -->
 <section class="service-section" id="events">
-  <div class="service-layout service-block reveal" style="flex-direction:row-reverse;">
+  <div class="service-layout service-block reveal">
     <div class="service-content">
       <div class="service-number">Service 05</div>
       <div class="service-icon">🎪</div>
@@ -804,9 +1017,9 @@
 
 <div class="purple-divider"></div>
 
-<!-- SERVICE 5: ARTIST -->
+<!-- SERVICE 6: ARTIST -->
 <section class="service-section" id="artist">
-  <div class="service-layout service-block reveal">
+  <div class="service-layout service-block reveal" style="flex-direction:row-reverse;">
     <div class="service-content">
       <div class="service-number">Service 06</div>
       <div class="service-icon">🎤</div>
@@ -841,9 +1054,9 @@
 
 <div class="purple-divider"></div>
 
-<!-- SERVICE 6: SOCIAL -->
+<!-- SERVICE 7: SOCIAL -->
 <section class="service-section" id="social">
-  <div class="service-layout service-block reveal" style="flex-direction:row-reverse;">
+  <div class="service-layout service-block reveal">
     <div class="service-content">
       <div class="service-number">Service 07</div>
       <div class="service-icon">📱</div>
@@ -878,17 +1091,17 @@
 
 <div class="purple-divider"></div>
 
-<!-- SERVICE 7: MALL -->
+<!-- SERVICE 8: MALL -->
 <section class="service-section" id="mall">
-  <div class="service-layout service-block reveal">
+  <div class="service-layout service-block reveal" style="flex-direction:row-reverse;">
     <div class="service-content">
       <div class="service-number">Service 08</div>
       <div class="service-icon">🏬</div>
       <h2 class="service-heading">Mall Management & SMD Digital Branding</h2>
-      <p class="service-intro">We bridge brands with Pakistan's most prominent retail destinations. Through strategic leasing and state-of-the-art SMD digital display solutions, we put your brand at the heart of consumer journeys.</p>
+      <p class="service-intro">We bridge brands with Pakistan's most prominent retail destinations. Through strategic partnerships and state-of-the-art SMD digital display solutions, we put your brand at the heart of consumer journeys.</p>
       <ul class="capability-list">
         <li>Commercial leasing consultancy — unit selection, negotiation, and lease management in key malls</li>
-        <li>SMD digital screen leasing and content scheduling across our proprietary mall network</li>
+        <li>SMD digital screen leasing and content scheduling across our partner mall network</li>
         <li>Pop-up kiosk placement and brand activation space booking</li>
         <li>Mall environment branding — atriums, food courts, corridors, and entrance facades</li>
         <li>Footfall analytics and dwell-time data to inform campaign timing and placement</li>
@@ -919,10 +1132,10 @@
     <div class="about-text">
       <div class="section-tag">Who We Are</div>
       <h2 class="about-tagline">Karachi-born.<br><em>Pakistan-wide.</em><br>Globally connected.</h2>
-      <p class="about-p">Kolachi Events & Marketing was founded with one mission: to give Pakistani brands the world-class marketing infrastructure they deserve. We're not a middleman — we own our inventory, manage our talent network, and employ our creatives in-house.</p>
+      <p class="about-p">Kolachi Events & Marketing was founded with one mission: to give Pakistani brands the world-class marketing infrastructure they deserve. We're a connector — linking your brand directly with billboard owners, SMD screen operators, top talent, and digital media channels.</p>
       <p class="about-p">Every campaign we run draws from real expertise across OOH media, digital performance, event production, and talent management — unified under one roof so your brand speaks with one voice, everywhere.</p>
       <div class="pillars-grid">
-        <div class="pillar-card"><h4>Owned Inventory</h4><p>We own and operate our billboard and SMD screen network, giving clients direct access without agency markups.</p></div>
+        <div class="pillar-card"><h4>Direct Connections</h4><p>We work directly with billboard owners, SMD operators, and talent — meaning faster placements, fair rates, and no unnecessary layers.</p></div>
         <div class="pillar-card"><h4>Integrated Approach</h4><p>Every service is connected. Your OOH campaign informs your digital strategy, which drives your social content.</p></div>
         <div class="pillar-card"><h4>Local Intelligence</h4><p>Deep roots in Pakistan's media landscape mean we know what works in every city, community, and season.</p></div>
         <div class="pillar-card"><h4>Results First</h4><p>We measure success in outcomes — reach, engagement, footfall, and conversions — not just deliverables.</p></div>
@@ -942,15 +1155,119 @@
   <div class="section-header reveal">
     <div class="section-tag">Why Kolachi</div>
     <h2 class="section-title">Everything Under One Roof</h2>
-    <p class="section-desc">The only agency in Pakistan that combines owned media, talent, digital, and events in a single integrated offering.</p>
+    <p class="section-desc">The only agency in Pakistan that combines direct media connections, talent, digital, and events in a single integrated offering.</p>
   </div>
   <div class="why-grid reveal">
-    <div class="why-card"><div class="why-icon">🏗️</div><div class="why-title">Owned Media Infrastructure</div><p class="why-text">Our billboard and SMD screen network is ours — no third-party negotiations, no inflated rates, faster campaign launches.</p></div>
-    <div class="why-card"><div class="why-icon">🤝</div><div class="why-title">Genuine Influencer Access</div><p class="why-text">Direct relationships with Pakistan's top actors and creators — not sourced through talent platforms — means authentic partnerships that resonate.</p></div>
+    <div class="why-card"><div class="why-icon">🤝</div><div class="why-title">Direct Media Access</div><p class="why-text">We work directly with billboard owners and SMD screen operators across Pakistan — no extra layers, straightforward rates, and faster campaign launches.</p></div>
+    <div class="why-card"><div class="why-icon">⭐</div><div class="why-title">Genuine Influencer Access</div><p class="why-text">Direct relationships with Pakistan's top actors and creators — not sourced through talent platforms — means authentic partnerships that resonate.</p></div>
     <div class="why-card"><div class="why-icon">📊</div><div class="why-title">Data-Led Decisions</div><p class="why-text">Every campaign is backed by real audience data, from mall footfall metrics to digital conversion funnels and ad performance dashboards.</p></div>
     <div class="why-card"><div class="why-icon">⚡</div><div class="why-title">Agile Execution</div><p class="why-text">In-house design, production, and operations teams mean we move faster than conventional agencies without sacrificing quality.</p></div>
     <div class="why-card"><div class="why-icon">🗺️</div><div class="why-title">Nationwide Reach</div><p class="why-text">From Karachi to Gujranwala, our physical and digital footprint spans Pakistan's major commercial centres.</p></div>
     <div class="why-card"><div class="why-icon">🔗</div><div class="why-title">Truly Integrated</div><p class="why-text">Online and offline, together. Your billboard drives your social campaign, your influencer amplifies your event — everything connects.</p></div>
+  </div>
+</section>
+
+<!-- BRANDS WE'VE WORKED WITH -->
+<section class="brands-section" id="brands">
+  <div class="brands-header reveal">
+    <div class="section-tag">Our Clients</div>
+    <h2 class="section-title">Brands We've Worked With</h2>
+    <p class="section-desc">Trusted by leading names across Pakistan's retail, entertainment, and lifestyle sectors.</p>
+  </div>
+  <div class="brands-scroll-track">
+    <div class="brands-scroll-inner" id="brandsScroll">
+      <!-- Logo slots — replace with <img src="logo.png"> inside each slot -->
+      <div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div>
+      <!-- Duplicate for seamless loop -->
+      <div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div>
+    </div>
+  </div>
+</section>
+
+<!-- UPCOMING ACTIVITIES -->
+<section class="upcoming-section" id="upcoming">
+  <div class="section-header reveal">
+    <div class="section-tag">What's Next</div>
+    <h2 class="section-title">Upcoming Activities</h2>
+    <p class="section-desc">A look at what we're working on — campaigns launching soon, events in production, and activations taking shape.</p>
+  </div>
+  <div class="upcoming-grid reveal">
+
+    <div class="upcoming-card">
+      <div class="upcoming-thumb">
+        <div class="upcoming-thumb-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Activity Image</span>
+        </div>
+        <span class="upcoming-badge badge-upcoming">Upcoming</span>
+      </div>
+      <div class="upcoming-body">
+        <div class="upcoming-date">Coming Soon · 2025</div>
+        <h3 class="upcoming-title">Eid Activation Campaign</h3>
+        <p class="upcoming-desc">A city-wide festive activation across our mall network in Karachi and Gujranwala — combining SMD displays, influencer content, and on-ground brand experiences.</p>
+        <div class="upcoming-meta">
+          <span class="upcoming-meta-tag">📍 Karachi + Gujranwala</span>
+          <span class="upcoming-meta-tag">🏬 Mall Activation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="upcoming-card">
+      <div class="upcoming-thumb">
+        <div class="upcoming-thumb-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Activity Image</span>
+        </div>
+        <span class="upcoming-badge badge-open">Now Open</span>
+      </div>
+      <div class="upcoming-body">
+        <div class="upcoming-date">June 2025</div>
+        <h3 class="upcoming-title">Influencer PR Launch Push</h3>
+        <p class="upcoming-desc">A multi-brand influencer seeding campaign launching across Instagram and TikTok — now accepting brand partnerships for Q3 slots.</p>
+        <div class="upcoming-meta">
+          <span class="upcoming-meta-tag">📱 Instagram · TikTok</span>
+          <span class="upcoming-meta-tag">🌟 Influencer PR</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="upcoming-card">
+      <div class="upcoming-thumb">
+        <div class="upcoming-thumb-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Activity Image</span>
+        </div>
+        <span class="upcoming-badge badge-soon">Coming Soon</span>
+      </div>
+      <div class="upcoming-body">
+        <div class="upcoming-date">Q3 · 2025</div>
+        <h3 class="upcoming-title">Independence Day Billboard Drive</h3>
+        <p class="upcoming-desc">Premium 14th August billboard and SMD placements across Karachi's key corridors. Limited slots available — brands can now reserve their spot.</p>
+        <div class="upcoming-meta">
+          <span class="upcoming-meta-tag">📍 Karachi</span>
+          <span class="upcoming-meta-tag">🏙️ OOH Branding</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1032,6 +1349,7 @@
           <option value="" disabled selected>Select a service</option>
           <option>Influencer PR</option>
           <option>Out-of-Home (OOH) Branding</option>
+          <option>E-commerce for Brands</option>
           <option>Digital & Performance Marketing</option>
           <option>Event Management</option>
           <option>Artist Management</option>
@@ -1059,6 +1377,8 @@
       <li><a href="#artist">Artists</a></li>
       <li><a href="#social">Social</a></li>
       <li><a href="#mall">Mall</a></li>
+      <li><a href="#brands">Brands</a></li>
+      <li><a href="#upcoming">Upcoming</a></li>
       <li><a href="#team">Team</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -1067,15 +1387,57 @@
 </footer>
 
 <script>
+  /* ---- Flip cards ---- */
   document.querySelectorAll('.flip-card').forEach(card => {
     card.addEventListener('click', () => card.classList.toggle('flipped'));
   });
+
+  /* ---- Scroll reveal ---- */
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* ---- Floating particles ---- */
+  (function spawnParticles() {
+    const hero = document.querySelector('.hero');
+    for (let i = 0; i < 18; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const size = Math.random() * 4 + 2;
+      const left = Math.random() * 100;
+      const delay = Math.random() * 15;
+      const dur   = Math.random() * 12 + 10;
+      const colors = ['rgba(124,58,237,0.5)', 'rgba(167,139,250,0.4)', 'rgba(255,45,120,0.35)'];
+      const col = colors[Math.floor(Math.random() * colors.length)];
+      p.style.cssText = `
+        width:${size}px; height:${size}px;
+        left:${left}%; bottom:-10px;
+        background:${col};
+        animation-duration:${dur}s;
+        animation-delay:-${delay}s;
+      `;
+      hero.appendChild(p);
+    }
+  })();
+
+  /* ---- Nav active highlight on scroll ---- */
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 140) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--glow-purple)' : '';
+    });
+  }, { passive: true });
 </script>
 </body>
 </html>
