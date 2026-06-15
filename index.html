@@ -32,7 +32,7 @@
     line-height: 1.65;
   }
 
-  /* ===================== NAV ===================== */
+  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
@@ -76,7 +76,7 @@
   }
   .nav-cta:hover { background: var(--royal-purple); transform: translateY(-1px); }
 
-  /* ===================== HERO ===================== */
+  /* HERO */
   .hero {
     min-height: 100vh; display: flex; align-items: center; justify-content: center;
     padding: 8rem 4rem 6rem; position: relative;
@@ -121,7 +121,6 @@
     to   { transform: translate(30px, 20px) scale(1.05); }
   }
 
-  /* Floating particles */
   .particle {
     position: absolute; border-radius: 50%; pointer-events: none;
     background: var(--vivid-purple); opacity: 0.35;
@@ -207,7 +206,7 @@
     text-transform: uppercase; font-family: 'Space Grotesk', sans-serif;
   }
 
-  /* ===================== SECTIONS ===================== */
+  /* SECTIONS */
   section { padding: 6rem 4rem; }
   .section-header { text-align: center; margin-bottom: 4rem; }
   .section-tag {
@@ -221,7 +220,7 @@
   }
   .section-desc { color: var(--mid-gray); max-width: 560px; margin: 0 auto; font-size: 1rem; }
 
-  /* ===================== SERVICES STRIP ===================== */
+  /* SERVICES STRIP */
   .services-strip {
     background: var(--deep-purple); padding: 3rem 4rem;
     border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
@@ -245,7 +244,7 @@
     color: #fff; transform: translateY(-2px);
   }
 
-  /* ===================== SERVICE BLOCK ===================== */
+  /* SERVICE BLOCK */
   .service-block { max-width: 1200px; margin: 0 auto; }
   .service-section { background: var(--obsidian); border-top: 1px solid var(--border); }
   .service-section:nth-child(even) { background: var(--card-bg); }
@@ -296,7 +295,7 @@
   }
   .cap-tag:hover { background: rgba(124,58,237,0.3); border-color: var(--vivid-purple); transform: translateY(-1px); }
 
-  /* ===================== GALLERY ===================== */
+  /* GALLERY */
   .gallery-grid {
     display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 0.75rem;
   }
@@ -331,7 +330,7 @@
     letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.7);
   }
 
-  /* ===================== ABOUT ===================== */
+  /* ABOUT */
   .about-section {
     background: var(--deep-purple); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
   }
@@ -360,7 +359,7 @@
   }
   .pillar-card p { font-size: 0.83rem; color: var(--mid-gray); line-height: 1.5; }
 
-  /* ===================== WHY ===================== */
+  /* WHY */
   .why-section { background: var(--obsidian); }
   .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; max-width: 1100px; margin: 0 auto; }
   .why-card {
@@ -380,7 +379,7 @@
   .why-title { font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--ghost-white); margin-bottom: 0.6rem; }
   .why-text { font-size: 0.85rem; color: var(--mid-gray); line-height: 1.6; }
 
-  /* ===================== BRAND LOGOS SCROLLER ===================== */
+  /* BRANDS */
   .brands-section {
     background: var(--deep-purple);
     border-top: 1px solid var(--border);
@@ -388,12 +387,8 @@
     padding: 4rem 0;
     overflow: hidden;
   }
-  .brands-header {
-    text-align: center; padding: 0 4rem; margin-bottom: 3rem;
-  }
-  .brands-scroll-track {
-    position: relative; overflow: hidden;
-  }
+  .brands-header { text-align: center; padding: 0 4rem; margin-bottom: 3rem; }
+  .brands-scroll-track { position: relative; overflow: hidden; }
   .brands-scroll-track::before,
   .brands-scroll-track::after {
     content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none;
@@ -432,38 +427,262 @@
   }
   .brand-logo-slot:hover img { opacity: 1; filter: grayscale(0%) brightness(1.1); }
 
-  /* ===================== UPCOMING ACTIVITIES ===================== */
+  /* ===================== WHAT WE'VE DONE ===================== */
+  .done-section {
+    background: var(--card-bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 5rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .done-section::before {
+    content: '';
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 55% 60% at 15% 50%, rgba(124,58,237,0.09) 0%, transparent 70%),
+      radial-gradient(ellipse 45% 50% at 85% 40%, rgba(255,45,120,0.06) 0%, transparent 70%);
+  }
+  .done-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; gap: 5rem;
+    position: relative; z-index: 1;
+  }
+  .done-left { flex: 0 0 420px; }
+  .done-right {
+    flex: 1; display: flex; flex-direction: column;
+    gap: 1.2rem; align-items: flex-start;
+  }
+  .done-tagline {
+    font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700;
+    color: var(--ghost-white); line-height: 1.15; margin-bottom: 1rem;
+  }
+  .done-tagline em { font-style: italic; color: var(--glow-purple); }
+  .done-desc { color: var(--mid-gray); font-size: 0.95rem; line-height: 1.75; margin-bottom: 1.8rem; }
+  .done-stats-row { display: flex; gap: 2.5rem; margin-bottom: 2rem; }
+  .done-stat { text-align: left; }
+  .done-stat-num {
+    font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900;
+    color: var(--glow-purple); display: block; line-height: 1;
+  }
+  .done-stat-label {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid-gray); margin-top: 0.3rem;
+  }
+  .btn-view-work {
+    display: inline-flex; align-items: center; gap: 0.65rem;
+    background: linear-gradient(135deg, var(--vivid-purple), var(--royal-purple));
+    color: #fff; padding: 1rem 2.2rem; border: none; border-radius: 2px;
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.88rem; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;
+    box-shadow: 0 0 28px rgba(124,58,237,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-view-work:hover { transform: translateY(-3px); box-shadow: 0 0 55px rgba(167,139,250,0.65); }
+  .btn-view-work svg { width: 18px; height: 18px; transition: transform 0.2s; }
+  .btn-view-work:hover svg { transform: scale(1.2); }
+
+  /* Preview thumbnails on the right side */
+  .done-preview-strip {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem;
+    width: 100%;
+  }
+  .done-preview-thumb {
+    aspect-ratio: 4/3; border-radius: 6px; overflow: hidden;
+    background: rgba(124,58,237,0.08); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color 0.3s, transform 0.3s;
+    position: relative; cursor: default;
+  }
+  .done-preview-thumb:first-child { grid-column: 1 / -1; aspect-ratio: 16/7; }
+  .done-preview-thumb:hover { border-color: rgba(124,58,237,0.5); transform: scale(1.02); }
+  .done-preview-thumb img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: opacity 0.3s; }
+  .done-preview-thumb:hover img { opacity: 1; }
+  .done-thumb-ph {
+    display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+    color: rgba(167,139,250,0.3);
+  }
+  .done-thumb-ph svg { width: 28px; height: 28px; }
+  .done-thumb-ph span {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.62rem;
+    letter-spacing: 0.1em; text-transform: uppercase; color: rgba(167,139,250,0.3);
+  }
+
+  /* ===================== GALLERY MODAL ===================== */
+  .gallery-modal-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(5, 4, 10, 0.96);
+    backdrop-filter: blur(20px);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .gallery-modal-overlay.open {
+    opacity: 1; pointer-events: all;
+  }
+  .gallery-modal-box {
+    width: min(92vw, 1000px);
+    background: #080612;
+    border: 1px solid rgba(124,58,237,0.4);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 40px 120px rgba(0,0,0,0.8), 0 0 80px rgba(124,58,237,0.15);
+    transform: translateY(30px) scale(0.97);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .gallery-modal-overlay.open .gallery-modal-box {
+    transform: translateY(0) scale(1);
+  }
+  .modal-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 2rem;
+    border-bottom: 1px solid rgba(124,58,237,0.25);
+    background: rgba(12,8,21,0.9);
+  }
+  .modal-title-group { display: flex; flex-direction: column; gap: 0.15rem; }
+  .modal-eyebrow {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.65rem; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--glow-purple);
+  }
+  .modal-title {
+    font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700;
+    color: var(--ghost-white);
+  }
+  .modal-close {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(124,58,237,0.12); border: 1px solid rgba(124,58,237,0.3);
+    color: var(--mid-gray); font-size: 1.1rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+    flex-shrink: 0;
+  }
+  .modal-close:hover { background: rgba(255,45,120,0.2); border-color: var(--shock-pink); color: #fff; transform: rotate(90deg); }
+
+  /* Scrolling marquee inside modal */
+  .modal-scroller-wrap {
+    padding: 2rem 0;
+    overflow: hidden;
+    position: relative;
+  }
+  .modal-scroller-wrap::before,
+  .modal-scroller-wrap::after {
+    content: ''; position: absolute; top: 0; bottom: 0; width: 90px; z-index: 2; pointer-events: none;
+  }
+  .modal-scroller-wrap::before { left: 0; background: linear-gradient(90deg, #080612, transparent); }
+  .modal-scroller-wrap::after  { right: 0; background: linear-gradient(-90deg, #080612, transparent); }
+
+  /* Two rows scrolling in opposite directions */
+  .modal-row { display: flex; width: max-content; margin-bottom: 1rem; }
+  .modal-row:last-child { margin-bottom: 0; }
+  .modal-row-inner {
+    display: flex; gap: 1rem;
+  }
+  .modal-row-1 .modal-row-inner { animation: modalScrollLeft 35s linear infinite; }
+  .modal-row-2 .modal-row-inner { animation: modalScrollRight 40s linear infinite; }
+  .modal-scroller-wrap:hover .modal-row-inner { animation-play-state: paused; }
+  @keyframes modalScrollLeft {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @keyframes modalScrollRight {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+  }
+
+  /* Individual image cards in modal */
+  .modal-img-card {
+    width: 240px; height: 160px; flex-shrink: 0;
+    border-radius: 8px; overflow: hidden;
+    background: rgba(124,58,237,0.08);
+    border: 1px solid rgba(124,58,237,0.22);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    cursor: default;
+  }
+  .modal-img-card:hover {
+    border-color: var(--vivid-purple);
+    transform: scale(1.04) translateY(-3px);
+    box-shadow: 0 12px 40px rgba(124,58,237,0.35);
+    z-index: 1;
+  }
+  .modal-img-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    opacity: 0.75; transition: opacity 0.3s;
+  }
+  .modal-img-card:hover img { opacity: 1; }
+  .modal-img-ph {
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    color: rgba(167,139,250,0.35); width: 100%; height: 100%;
+    justify-content: center; padding: 1rem;
+  }
+  .modal-img-ph svg { width: 32px; height: 32px; }
+  .modal-img-ph span {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.62rem;
+    letter-spacing: 0.1em; text-transform: uppercase; color: rgba(167,139,250,0.35);
+    text-align: center;
+  }
+  .modal-img-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(5,4,10,0.85) 0%, transparent 100%);
+    padding: 0.8rem 0.75rem 0.5rem;
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .modal-img-card:hover .modal-img-label { opacity: 1; }
+  .modal-img-label span {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.65rem;
+    letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.75);
+  }
+
+  /* Number badge on each card */
+  .modal-img-num {
+    position: absolute; top: 0.5rem; right: 0.5rem;
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.58rem; font-weight: 700;
+    letter-spacing: 0.1em; color: var(--glow-purple);
+    background: rgba(5,4,10,0.7); border: 1px solid rgba(124,58,237,0.35);
+    padding: 0.15rem 0.4rem; border-radius: 4px;
+  }
+
+  .modal-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 2rem;
+    border-top: 1px solid rgba(124,58,237,0.2);
+    background: rgba(8,6,18,0.9);
+    flex-wrap: wrap; gap: 0.8rem;
+  }
+  .modal-footer-note {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem;
+    color: rgba(167,139,250,0.5); letter-spacing: 0.06em;
+  }
+  .modal-count {
+    font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem;
+    color: var(--glow-purple); letter-spacing: 0.1em;
+    font-weight: 600;
+  }
+
+  /* UPCOMING */
   .upcoming-section {
     background: var(--obsidian);
     border-top: 1px solid var(--border);
     padding: 6rem 4rem;
   }
   .upcoming-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; max-width: 1200px; margin: 0 auto;
   }
   .upcoming-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-    transition: border-color 0.3s, transform 0.4s, box-shadow 0.3s;
-    cursor: default;
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 8px; overflow: hidden; position: relative;
+    transition: border-color 0.3s, transform 0.4s, box-shadow 0.3s; cursor: default;
   }
   .upcoming-card:hover {
-    border-color: var(--vivid-purple);
-    transform: translateY(-6px);
+    border-color: var(--vivid-purple); transform: translateY(-6px);
     box-shadow: 0 20px 50px rgba(124,58,237,0.25);
   }
   .upcoming-card::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
     background: linear-gradient(90deg, var(--vivid-purple), var(--glow-purple));
-    transform: scaleX(0); transform-origin: left;
-    transition: transform 0.4s ease;
+    transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
   }
   .upcoming-card:hover::before { transform: scaleX(1); }
   .upcoming-thumb {
@@ -493,8 +712,7 @@
   .upcoming-body { padding: 1.5rem; }
   .upcoming-date {
     font-family: 'Space Grotesk', sans-serif; font-size: 0.7rem; font-weight: 600;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--glow-purple); margin-bottom: 0.5rem;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--glow-purple); margin-bottom: 0.5rem;
     display: flex; align-items: center; gap: 0.4rem;
   }
   .upcoming-date::before { content: ''; display:block; width:5px; height:5px; border-radius:50%; background:var(--glow-purple); flex-shrink:0; }
@@ -502,19 +720,15 @@
     font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700;
     color: var(--ghost-white); margin-bottom: 0.5rem; line-height: 1.3;
   }
-  .upcoming-desc {
-    font-size: 0.83rem; color: var(--mid-gray); line-height: 1.6; margin-bottom: 1rem;
-  }
-  .upcoming-meta {
-    display: flex; gap: 1rem; flex-wrap: wrap;
-  }
+  .upcoming-desc { font-size: 0.83rem; color: var(--mid-gray); line-height: 1.6; margin-bottom: 1rem; }
+  .upcoming-meta { display: flex; gap: 1rem; flex-wrap: wrap; }
   .upcoming-meta-tag {
     font-family: 'Space Grotesk', sans-serif; font-size: 0.68rem;
     letter-spacing: 0.08em; text-transform: uppercase;
     color: rgba(167,139,250,0.6); display: flex; align-items: center; gap: 0.3rem;
   }
 
-  /* ===================== TEAM — SHOCK PINK PURPLE ===================== */
+  /* TEAM */
   .team-section {
     background: linear-gradient(160deg, #0A0012 0%, #110008 40%, #06000F 100%);
     border-top: 1px solid rgba(255,45,120,0.2);
@@ -522,8 +736,7 @@
     position: relative; overflow: hidden;
   }
   .team-section::before {
-    content: '';
-    position: absolute; inset: 0; pointer-events: none;
+    content: ''; position: absolute; inset: 0; pointer-events: none;
     background:
       radial-gradient(ellipse 60% 50% at 20% 30%, rgba(255,45,120,0.12) 0%, transparent 70%),
       radial-gradient(ellipse 50% 60% at 80% 70%, rgba(124,58,237,0.15) 0%, transparent 70%);
@@ -545,11 +758,9 @@
     -webkit-backface-visibility: hidden; border-radius: 10px; overflow: hidden;
   }
   .flip-front {
-    background: #0D0015;
-    border: 1px solid rgba(255,45,120,0.25);
+    background: #0D0015; border: 1px solid rgba(255,45,120,0.25);
     display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
-    padding: 0 0 2rem 0;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    padding: 0 0 2rem 0; transition: border-color 0.3s, box-shadow 0.3s;
   }
   .flip-card:hover .flip-front {
     border-color: rgba(255,45,120,0.6);
@@ -575,8 +786,7 @@
     position: absolute; bottom: -1px; left: 50%; transform: translateX(-50%);
     width: 80px; height: 3px;
     background: linear-gradient(90deg, transparent, var(--shock-pink), var(--glow-purple), transparent);
-    z-index: 2;
-    box-shadow: 0 0 12px rgba(255,45,120,0.8);
+    z-index: 2; box-shadow: 0 0 12px rgba(255,45,120,0.8);
     animation: ringPulse 2s ease-in-out infinite;
   }
   @keyframes ringPulse {
@@ -590,8 +800,7 @@
   }
   .member-role {
     display: block; font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem; font-weight: 600;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--pink-glow); margin-bottom: 0.8rem;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--pink-glow); margin-bottom: 0.8rem;
   }
   .member-click-hint {
     font-family: 'Space Grotesk', sans-serif; font-size: 0.68rem; letter-spacing: 0.08em;
@@ -623,7 +832,7 @@
     color: rgba(255,110,180,0.4); text-transform: uppercase; margin-top: 0.4rem;
   }
 
-  /* ===================== CONTACT ===================== */
+  /* CONTACT */
   .contact-section { background: var(--deep-purple); border-top: 1px solid var(--border); }
   .contact-inner { max-width: 700px; margin: 0 auto; text-align: center; }
   .contact-form { display: flex; flex-direction: column; gap: 1rem; margin-top: 2.5rem; text-align: left; }
@@ -655,7 +864,7 @@
   }
   .form-submit:hover { box-shadow: 0 0 60px rgba(124,58,237,0.7); transform: translateY(-3px); }
 
-  /* ===================== FOOTER ===================== */
+  /* FOOTER */
   footer { background: #020108; border-top: 1px solid var(--border); padding: 3rem 4rem; }
   .footer-inner {
     max-width: 1200px; margin: 0 auto;
@@ -672,22 +881,22 @@
   .footer-links a:hover { color: var(--glow-purple); }
   .footer-copy { font-size: 0.78rem; color: rgba(167,139,250,0.4); font-family: 'Space Grotesk', sans-serif; }
 
-  /* ===================== DIVIDER ===================== */
+  /* DIVIDER */
   .purple-divider {
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--vivid-purple), transparent);
     opacity: 0.4; margin: 0 4rem;
   }
 
-  /* ===================== SCROLL REVEAL ===================== */
+  /* SCROLL REVEAL */
   .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* ===================== RESPONSIVE ===================== */
+  /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
-    section, .team-section, .upcoming-section, .brands-section { padding: 4rem 1.5rem; }
+    section, .team-section, .upcoming-section, .brands-section, .done-section { padding: 4rem 1.5rem; }
     .hero { padding: 7rem 1.5rem 4rem; }
     .service-layout { flex-direction: column !important; }
     .about-layout { flex-direction: column; gap: 2.5rem; }
@@ -701,26 +910,30 @@
     .purple-divider { margin: 0 1.5rem; }
     .team-grid { grid-template-columns: 1fr 1fr; }
     .upcoming-grid { grid-template-columns: 1fr; }
+    .done-inner { flex-direction: column; gap: 2.5rem; }
+    .done-left { flex: none; width: 100%; }
+    .done-stats-row { gap: 1.5rem; }
   }
   @media (max-width: 600px) {
     .why-grid { grid-template-columns: 1fr; }
     .pillars-grid { grid-template-columns: 1fr; }
     .hero-stats { gap: 1.5rem; }
+    .done-stats-row { flex-wrap: wrap; gap: 1rem; }
+    .gallery-modal-box { border-radius: 10px; }
+    .modal-header { padding: 1rem 1.2rem; }
+    .modal-footer { padding: 0.9rem 1.2rem; }
   }
   @media (max-width: 540px) {
     .team-grid { grid-template-columns: 1fr; }
     .flip-card { height: 380px; }
+    .modal-img-card { width: 190px; height: 130px; }
   }
-
-  /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   }
 </style>
 </head>
 <body>
-
-<!-- Floating particles injected by JS -->
 
 <!-- NAV -->
 <nav>
@@ -758,22 +971,10 @@
       <a href="#contact" class="btn-ghost">Start a Project</a>
     </div>
     <div class="hero-stats">
-      <div class="stat-item">
-        <span class="stat-num">200+</span>
-        <span class="stat-label">Campaigns Delivered</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">50+</span>
-        <span class="stat-label">Influencer Network</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">10+</span>
-        <span class="stat-label">Mall Locations</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">8</span>
-        <span class="stat-label">Core Services</span>
-      </div>
+      <div class="stat-item"><span class="stat-num">200+</span><span class="stat-label">Campaigns Delivered</span></div>
+      <div class="stat-item"><span class="stat-num">50+</span><span class="stat-label">Influencer Network</span></div>
+      <div class="stat-item"><span class="stat-num">10+</span><span class="stat-label">Mall Locations</span></div>
+      <div class="stat-item"><span class="stat-num">8</span><span class="stat-label">Core Services</span></div>
     </div>
   </div>
 </section>
@@ -790,6 +991,88 @@
     <span class="strip-tag">Artist Management</span>
     <span class="strip-tag">Social Media</span>
     <span class="strip-tag">Mall & SMD Branding</span>
+  </div>
+</div>
+
+<!-- ===================== WHAT WE'VE DONE ===================== -->
+<section class="done-section" id="done">
+  <div class="done-inner reveal">
+    <div class="done-left">
+      <div class="section-tag">Our Work</div>
+      <h2 class="done-tagline">Campaigns that<br><em>made noise.</em></h2>
+      <p class="done-desc">
+        Over 200 campaigns executed across Pakistan — from Karachi's arterial billboards to viral TikTok launches. Every project in our portfolio was built on a brief that mattered to a brand that trusted us.
+      </p>
+      <div class="done-stats-row">
+        <div class="done-stat">
+          <span class="done-stat-num">200+</span>
+          <span class="done-stat-label">Campaigns</span>
+        </div>
+        <div class="done-stat">
+          <span class="done-stat-num">50+</span>
+          <span class="done-stat-label">Influencers</span>
+        </div>
+        <div class="done-stat">
+          <span class="done-stat-num">5+</span>
+          <span class="done-stat-label">Years Active</span>
+        </div>
+      </div>
+      <button class="btn-view-work" id="openGalleryBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        View Our Work
+      </button>
+    </div>
+    <div class="done-right">
+      <div class="done-preview-strip">
+        <div class="done-preview-thumb">
+          <div class="done-thumb-ph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Featured Campaign</span>
+          </div>
+        </div>
+        <div class="done-preview-thumb">
+          <div class="done-thumb-ph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Event Highlight</span>
+          </div>
+        </div>
+        <div class="done-preview-thumb">
+          <div class="done-thumb-ph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span>Brand Activation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALLERY MODAL ===================== -->
+<div class="gallery-modal-overlay" id="galleryModal" role="dialog" aria-modal="true" aria-label="Our Work Gallery">
+  <div class="gallery-modal-box">
+    <div class="modal-header">
+      <div class="modal-title-group">
+        <span class="modal-eyebrow">Portfolio · Kolachi Events & Marketing</span>
+        <h2 class="modal-title">What We've Done</h2>
+      </div>
+      <button class="modal-close" id="closeGalleryBtn" aria-label="Close gallery">✕</button>
+    </div>
+
+    <div class="modal-scroller-wrap">
+      <!-- Row 1 — scrolls left -->
+      <div class="modal-row modal-row-1">
+        <div class="modal-row-inner" id="row1"></div>
+      </div>
+      <!-- Row 2 — scrolls right -->
+      <div class="modal-row modal-row-2">
+        <div class="modal-row-inner" id="row2"></div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <span class="modal-footer-note">Hover to pause · Add your images from the backend</span>
+      <span class="modal-count">30 Image Slots Ready</span>
+    </div>
   </div>
 </div>
 
@@ -811,36 +1094,16 @@
         <li>Multi-platform seeding across Instagram, TikTok, YouTube, and Facebook</li>
       </ul>
       <div class="capability-tags">
-        <span class="cap-tag">Celebrity Tie-Ups</span>
-        <span class="cap-tag">Content Seeding</span>
-        <span class="cap-tag">Micro-Influencers</span>
-        <span class="cap-tag">PR Campaigns</span>
+        <span class="cap-tag">Celebrity Tie-Ups</span><span class="cap-tag">Content Seeding</span>
+        <span class="cap-tag">Micro-Influencers</span><span class="cap-tag">PR Campaigns</span>
         <span class="cap-tag">Brand Ambassadors</span>
       </div>
     </div>
     <div class="service-visual">
       <div class="gallery-grid">
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>Influencer Campaign — Insert Photo</span>
-          </div>
-          <div class="gallery-overlay"><span>Campaign Highlights</span></div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>Brand Partnership Event</span>
-          </div>
-          <div class="gallery-overlay"><span>Celebrity Collaboration</span></div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>Social Media Content</span>
-          </div>
-          <div class="gallery-overlay"><span>Digital Content</span></div>
-        </div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Influencer Campaign — Insert Photo</span></div><div class="gallery-overlay"><span>Campaign Highlights</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Brand Partnership Event</span></div><div class="gallery-overlay"><span>Celebrity Collaboration</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Social Media Content</span></div><div class="gallery-overlay"><span>Digital Content</span></div></div>
       </div>
     </div>
   </div>
@@ -855,7 +1118,7 @@
       <div class="service-number">Service 02</div>
       <div class="service-icon">🏙️</div>
       <h2 class="service-heading">Out-of-Home (OOH) Branding</h2>
-      <p class="service-intro">We connect your brand with Pakistan's most-visited public spaces. Through our established network of premium billboard owners and SMD screen operators, we place your brand face exactly where millions of eyes land — from bustling shopping malls to key arterial roads.</p>
+      <p class="service-intro">We connect your brand with Pakistan's most-visited public spaces. Through our established network of premium billboard owners and SMD screen operators, we place your brand face exactly where millions of eyes land.</p>
       <ul class="capability-list">
         <li>Direct access to premium billboard and SMD screen inventory through our exclusive partner network</li>
         <li>We negotiate on your behalf with site owners and operators — no middlemen, straightforward rates</li>
@@ -865,36 +1128,16 @@
         <li>Hyperlocal targeting by city zone, mall cluster, or route corridor</li>
       </ul>
       <div class="capability-tags">
-        <span class="cap-tag">Billboards</span>
-        <span class="cap-tag">SMD Screens</span>
-        <span class="cap-tag">Mall Media</span>
-        <span class="cap-tag">Transit Ads</span>
+        <span class="cap-tag">Billboards</span><span class="cap-tag">SMD Screens</span>
+        <span class="cap-tag">Mall Media</span><span class="cap-tag">Transit Ads</span>
         <span class="cap-tag">Print Production</span>
       </div>
     </div>
     <div class="service-visual">
       <div class="gallery-grid">
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>OOH Billboard — Insert Photo</span>
-          </div>
-          <div class="gallery-overlay"><span>Premium Billboard Placement</span></div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>SMD Screen — Insert Photo</span>
-          </div>
-          <div class="gallery-overlay"><span>Digital Screen Network</span></div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-            <span>Mall Activation — Insert Photo</span>
-          </div>
-          <div class="gallery-overlay"><span>In-Mall Activation</span></div>
-        </div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>OOH Billboard — Insert Photo</span></div><div class="gallery-overlay"><span>Premium Billboard Placement</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>SMD Screen — Insert Photo</span></div><div class="gallery-overlay"><span>Digital Screen Network</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Mall Activation — Insert Photo</span></div><div class="gallery-overlay"><span>In-Mall Activation</span></div></div>
       </div>
     </div>
   </div>
@@ -909,7 +1152,7 @@
       <div class="service-number">Service 03</div>
       <div class="service-icon">🛒</div>
       <h2 class="service-heading">E-commerce for Brands</h2>
-      <p class="service-intro">From initial startup to an established brand — we build, grow, and scale your entire e-commerce presence. Whether you're launching your first product or expanding an existing business, we provide end-to-end marketing strategies that turn browsers into buyers and buyers into loyal customers.</p>
+      <p class="service-intro">From initial startup to an established brand — we build, grow, and scale your entire e-commerce presence.</p>
       <ul class="capability-list">
         <li>Full e-commerce store setup on Shopify, WooCommerce, and local Pakistani platforms</li>
         <li>Brand identity development — logo, packaging, tone of voice, and visual language</li>
@@ -921,13 +1164,9 @@
         <li>Influencer-led product seeding and launch campaigns</li>
       </ul>
       <div class="capability-tags">
-        <span class="cap-tag">Store Setup</span>
-        <span class="cap-tag">Brand Building</span>
-        <span class="cap-tag">Daraz & Amazon</span>
-        <span class="cap-tag">Shopping Ads</span>
-        <span class="cap-tag">CRO</span>
-        <span class="cap-tag">Launch Strategy</span>
-        <span class="cap-tag">Automation</span>
+        <span class="cap-tag">Store Setup</span><span class="cap-tag">Brand Building</span>
+        <span class="cap-tag">Daraz & Amazon</span><span class="cap-tag">Shopping Ads</span>
+        <span class="cap-tag">CRO</span><span class="cap-tag">Launch Strategy</span><span class="cap-tag">Automation</span>
       </div>
     </div>
     <div class="service-visual">
@@ -949,7 +1188,7 @@
       <div class="service-number">Service 04</div>
       <div class="service-icon">📈</div>
       <h2 class="service-heading">Digital & Performance Marketing</h2>
-      <p class="service-intro">Data-driven strategies that turn ad spend into measurable growth. Our performance team manages everything from search visibility to precision-targeted paid campaigns, optimising every rupee you invest.</p>
+      <p class="service-intro">Data-driven strategies that turn ad spend into measurable growth.</p>
       <ul class="capability-list">
         <li>Search Engine Optimisation — technical audits, content strategy, on-page and off-page ranking</li>
         <li>Meta Ads (Facebook & Instagram) — audience segmentation, creative testing, conversion campaigns</li>
@@ -960,19 +1199,16 @@
         <li>Email and WhatsApp marketing automation for lead nurturing</li>
       </ul>
       <div class="capability-tags">
-        <span class="cap-tag">SEO</span>
-        <span class="cap-tag">Meta Ads</span>
-        <span class="cap-tag">Google Ads</span>
-        <span class="cap-tag">Performance Analytics</span>
-        <span class="cap-tag">Retargeting</span>
-        <span class="cap-tag">CRO</span>
+        <span class="cap-tag">SEO</span><span class="cap-tag">Meta Ads</span>
+        <span class="cap-tag">Google Ads</span><span class="cap-tag">Performance Analytics</span>
+        <span class="cap-tag">Retargeting</span><span class="cap-tag">CRO</span>
       </div>
     </div>
     <div class="service-visual">
       <div class="gallery-grid">
-        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Campaign Dashboard — Insert Photo</span></div><div class="gallery-overlay"><span>Performance Dashboard</span></div></div>
-        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Ad Creative — Insert Photo</span></div><div class="gallery-overlay"><span>Creative Campaigns</span></div></div>
-        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Analytics Report — Insert Photo</span></div><div class="gallery-overlay"><span>Data & Analytics</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Campaign Dashboard</span></div><div class="gallery-overlay"><span>Performance Dashboard</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Ad Creative</span></div><div class="gallery-overlay"><span>Creative Campaigns</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Analytics Report</span></div><div class="gallery-overlay"><span>Data & Analytics</span></div></div>
       </div>
     </div>
   </div>
@@ -987,7 +1223,7 @@
       <div class="service-number">Service 05</div>
       <div class="service-icon">🎪</div>
       <h2 class="service-heading">Event Management</h2>
-      <p class="service-intro">We conceptualise, produce, and execute events that leave lasting impressions. From intimate brand launches to large-scale seasonal activations, our 360° solutions cover every detail.</p>
+      <p class="service-intro">We conceptualise, produce, and execute events that leave lasting impressions.</p>
       <ul class="capability-list">
         <li>Corporate conferences, product launches, and press briefings — full logistics and production</li>
         <li>Seasonal activations: Eid, Independence Day, New Year, and festive campaigns</li>
@@ -998,18 +1234,16 @@
         <li>Post-event reporting with attendance metrics and media coverage analysis</li>
       </ul>
       <div class="capability-tags">
-        <span class="cap-tag">Corporate Events</span>
-        <span class="cap-tag">Activations</span>
-        <span class="cap-tag">Brand Launches</span>
-        <span class="cap-tag">Concerts</span>
+        <span class="cap-tag">Corporate Events</span><span class="cap-tag">Activations</span>
+        <span class="cap-tag">Brand Launches</span><span class="cap-tag">Concerts</span>
         <span class="cap-tag">Seasonal Campaigns</span>
       </div>
     </div>
     <div class="service-visual">
       <div class="gallery-grid">
-        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Event Production — Insert Photo</span></div><div class="gallery-overlay"><span>Event Highlights</span></div></div>
-        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Corporate Event — Insert Photo</span></div><div class="gallery-overlay"><span>Corporate Production</span></div></div>
-        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Seasonal Activation — Insert Photo</span></div><div class="gallery-overlay"><span>Seasonal Activations</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Event Production</span></div><div class="gallery-overlay"><span>Event Highlights</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Corporate Event</span></div><div class="gallery-overlay"><span>Corporate Production</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Seasonal Activation</span></div><div class="gallery-overlay"><span>Seasonal Activations</span></div></div>
       </div>
     </div>
   </div>
@@ -1024,7 +1258,7 @@
       <div class="service-number">Service 06</div>
       <div class="service-icon">🎤</div>
       <h2 class="service-heading">Artist Management</h2>
-      <p class="service-intro">We build careers, not just bookings. Our artist management division partners with emerging and established talent to deliver a structured, long-term roadmap that grows influence, income, and industry standing.</p>
+      <p class="service-intro">We build careers, not just bookings. Our artist management division partners with emerging and established talent to deliver a structured, long-term roadmap.</p>
       <ul class="capability-list">
         <li>Career strategy development — short and long-term brand positioning for artists</li>
         <li>Performance bookings and corporate appearance negotiations</li>
@@ -1035,18 +1269,16 @@
         <li>Training and development — media coaching, stage presence, and public speaking</li>
       </ul>
       <div class="capability-tags">
-        <span class="cap-tag">Career Management</span>
-        <span class="cap-tag">Bookings</span>
-        <span class="cap-tag">Personal Branding</span>
-        <span class="cap-tag">Promotions</span>
+        <span class="cap-tag">Career Management</span><span class="cap-tag">Bookings</span>
+        <span class="cap-tag">Personal Branding</span><span class="cap-tag">Promotions</span>
         <span class="cap-tag">Media Coaching</span>
       </div>
     </div>
     <div class="service-visual">
       <div class="gallery-grid">
-        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Artist Performance — Insert Photo</span></div><div class="gallery-overlay"><span>Live Performance</span></div></div>
-        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Brand Shoot — Insert Photo</span></div><div class="gallery-overlay"><span>Personal Branding Shoot</span></div></div>
-        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Artist Promo — Insert Photo</span></div><div class="gallery-overlay"><span>Promotional Campaign</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Artist Performance</span></div><div class="gallery-overlay"><span>Live Performance</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Brand Shoot</span></div><div class="gallery-overlay"><span>Personal Branding Shoot</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Artist Promo</span></div><div class="gallery-overlay"><span>Promotional Campaign</span></div></div>
       </div>
     </div>
   </div>
@@ -1061,7 +1293,7 @@
       <div class="service-number">Service 07</div>
       <div class="service-icon">📱</div>
       <h2 class="service-heading">Social Media Management</h2>
-      <p class="service-intro">Consistent, creative, and conversion-focused — we manage your social presence across every platform that matters, building communities and driving measurable results month after month.</p>
+      <p class="service-intro">Consistent, creative, and conversion-focused — we manage your social presence across every platform that matters.</p>
       <ul class="capability-list">
         <li><strong style="color:var(--ghost-white)">YouTube:</strong> Full channel setup, channel art, playlist architecture, video SEO, thumbnail design, and ongoing performance analytics</li>
         <li><strong style="color:var(--ghost-white)">Facebook:</strong> Page management, content calendars, paid post boosting, and community moderation</li>
@@ -1071,19 +1303,16 @@
         <li>Competitor benchmarking and monthly growth reports with actionable insights</li>
       </ul>
       <div class="capability-tags">
-        <span class="cap-tag">YouTube SEO</span>
-        <span class="cap-tag">TikTok Strategy</span>
-        <span class="cap-tag">Instagram Reels</span>
-        <span class="cap-tag">Facebook Ads</span>
-        <span class="cap-tag">Content Calendar</span>
-        <span class="cap-tag">Thumbnails</span>
+        <span class="cap-tag">YouTube SEO</span><span class="cap-tag">TikTok Strategy</span>
+        <span class="cap-tag">Instagram Reels</span><span class="cap-tag">Facebook Ads</span>
+        <span class="cap-tag">Content Calendar</span><span class="cap-tag">Thumbnails</span>
       </div>
     </div>
     <div class="service-visual">
       <div class="gallery-grid">
-        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Social Content — Insert Photo</span></div><div class="gallery-overlay"><span>Content Portfolio</span></div></div>
-        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>YouTube Channel — Insert Photo</span></div><div class="gallery-overlay"><span>YouTube Management</span></div></div>
-        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Analytics Report — Insert Photo</span></div><div class="gallery-overlay"><span>Growth Analytics</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Social Content</span></div><div class="gallery-overlay"><span>Content Portfolio</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>YouTube Channel</span></div><div class="gallery-overlay"><span>YouTube Management</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Analytics Report</span></div><div class="gallery-overlay"><span>Growth Analytics</span></div></div>
       </div>
     </div>
   </div>
@@ -1098,7 +1327,7 @@
       <div class="service-number">Service 08</div>
       <div class="service-icon">🏬</div>
       <h2 class="service-heading">Mall Management & SMD Digital Branding</h2>
-      <p class="service-intro">We bridge brands with Pakistan's most prominent retail destinations. Through strategic partnerships and state-of-the-art SMD digital display solutions, we put your brand at the heart of consumer journeys.</p>
+      <p class="service-intro">We bridge brands with Pakistan's most prominent retail destinations.</p>
       <ul class="capability-list">
         <li>Commercial leasing consultancy — unit selection, negotiation, and lease management in key malls</li>
         <li>SMD digital screen leasing and content scheduling across our partner mall network</li>
@@ -1109,18 +1338,16 @@
         <li>Nationwide mall network spanning Karachi, Gujranwala, and expanding to other cities</li>
       </ul>
       <div class="capability-tags">
-        <span class="cap-tag">SMD Screens</span>
-        <span class="cap-tag">Leasing</span>
-        <span class="cap-tag">Pop-Up Spaces</span>
-        <span class="cap-tag">Digital Branding</span>
+        <span class="cap-tag">SMD Screens</span><span class="cap-tag">Leasing</span>
+        <span class="cap-tag">Pop-Up Spaces</span><span class="cap-tag">Digital Branding</span>
         <span class="cap-tag">Retail Media</span>
       </div>
     </div>
     <div class="service-visual">
       <div class="gallery-grid">
-        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Mall Interior — Insert Photo</span></div><div class="gallery-overlay"><span>Mall Environment</span></div></div>
-        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>SMD Display — Insert Photo</span></div><div class="gallery-overlay"><span>SMD Digital Display</span></div></div>
-        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Pop-up Activation — Insert Photo</span></div><div class="gallery-overlay"><span>Brand Activation Zone</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Mall Interior</span></div><div class="gallery-overlay"><span>Mall Environment</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>SMD Display</span></div><div class="gallery-overlay"><span>SMD Digital Display</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Pop-up Activation</span></div><div class="gallery-overlay"><span>Brand Activation Zone</span></div></div>
       </div>
     </div>
   </div>
@@ -1167,7 +1394,7 @@
   </div>
 </section>
 
-<!-- BRANDS WE'VE WORKED WITH -->
+<!-- BRANDS -->
 <section class="brands-section" id="brands">
   <div class="brands-header reveal">
     <div class="section-tag">Our Clients</div>
@@ -1176,33 +1403,21 @@
   </div>
   <div class="brands-scroll-track">
     <div class="brands-scroll-inner" id="brandsScroll">
-      <!-- Logo slots — replace with <img src="logo.png"> inside each slot -->
-      <div class="brand-logo-slot">Brand Logo</div>
-      <div class="brand-logo-slot">Brand Logo</div>
-      <div class="brand-logo-slot">Brand Logo</div>
-      <div class="brand-logo-slot">Brand Logo</div>
-      <div class="brand-logo-slot">Brand Logo</div>
-      <div class="brand-logo-slot">Brand Logo</div>
-      <div class="brand-logo-slot">Brand Logo</div>
-      <div class="brand-logo-slot">Brand Logo</div>
-      <div class="brand-logo-slot">Brand Logo</div>
-      <div class="brand-logo-slot">Brand Logo</div>
-      <!-- Duplicate for seamless loop -->
-      <div class="brand-logo-slot">Brand Logo</div>
-      <div class="brand-logo-slot">Brand Logo</div>
-      <div class="brand-logo-slot">Brand Logo</div>
-      <div class="brand-logo-slot">Brand Logo</div>
-      <div class="brand-logo-slot">Brand Logo</div>
-      <div class="brand-logo-slot">Brand Logo</div>
-      <div class="brand-logo-slot">Brand Logo</div>
-      <div class="brand-logo-slot">Brand Logo</div>
-      <div class="brand-logo-slot">Brand Logo</div>
-      <div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div><div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div><div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div><div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div><div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div><div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div><div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div><div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div><div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div><div class="brand-logo-slot">Brand Logo</div>
+      <div class="brand-logo-slot">Brand Logo</div><div class="brand-logo-slot">Brand Logo</div>
     </div>
   </div>
 </section>
 
-<!-- UPCOMING ACTIVITIES -->
+<!-- UPCOMING -->
 <section class="upcoming-section" id="upcoming">
   <div class="section-header reveal">
     <div class="section-tag">What's Next</div>
@@ -1210,64 +1425,18 @@
     <p class="section-desc">A look at what we're working on — campaigns launching soon, events in production, and activations taking shape.</p>
   </div>
   <div class="upcoming-grid reveal">
-
     <div class="upcoming-card">
-      <div class="upcoming-thumb">
-        <div class="upcoming-thumb-inner">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          <span>Activity Image</span>
-        </div>
-        <span class="upcoming-badge badge-upcoming">Upcoming</span>
-      </div>
-      <div class="upcoming-body">
-        <div class="upcoming-date">Coming Soon · 2025</div>
-        <h3 class="upcoming-title">Eid Activation Campaign</h3>
-        <p class="upcoming-desc">A city-wide festive activation across our mall network in Karachi and Gujranwala — combining SMD displays, influencer content, and on-ground brand experiences.</p>
-        <div class="upcoming-meta">
-          <span class="upcoming-meta-tag">📍 Karachi + Gujranwala</span>
-          <span class="upcoming-meta-tag">🏬 Mall Activation</span>
-        </div>
-      </div>
+      <div class="upcoming-thumb"><div class="upcoming-thumb-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Activity Image</span></div><span class="upcoming-badge badge-upcoming">Upcoming</span></div>
+      <div class="upcoming-body"><div class="upcoming-date">Coming Soon · 2025</div><h3 class="upcoming-title">Eid Activation Campaign</h3><p class="upcoming-desc">A city-wide festive activation across our mall network in Karachi and Gujranwala — combining SMD displays, influencer content, and on-ground brand experiences.</p><div class="upcoming-meta"><span class="upcoming-meta-tag">📍 Karachi + Gujranwala</span><span class="upcoming-meta-tag">🏬 Mall Activation</span></div></div>
     </div>
-
     <div class="upcoming-card">
-      <div class="upcoming-thumb">
-        <div class="upcoming-thumb-inner">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          <span>Activity Image</span>
-        </div>
-        <span class="upcoming-badge badge-open">Now Open</span>
-      </div>
-      <div class="upcoming-body">
-        <div class="upcoming-date">June 2025</div>
-        <h3 class="upcoming-title">Influencer PR Launch Push</h3>
-        <p class="upcoming-desc">A multi-brand influencer seeding campaign launching across Instagram and TikTok — now accepting brand partnerships for Q3 slots.</p>
-        <div class="upcoming-meta">
-          <span class="upcoming-meta-tag">📱 Instagram · TikTok</span>
-          <span class="upcoming-meta-tag">🌟 Influencer PR</span>
-        </div>
-      </div>
+      <div class="upcoming-thumb"><div class="upcoming-thumb-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Activity Image</span></div><span class="upcoming-badge badge-open">Now Open</span></div>
+      <div class="upcoming-body"><div class="upcoming-date">June 2025</div><h3 class="upcoming-title">Influencer PR Launch Push</h3><p class="upcoming-desc">A multi-brand influencer seeding campaign launching across Instagram and TikTok — now accepting brand partnerships for Q3 slots.</p><div class="upcoming-meta"><span class="upcoming-meta-tag">📱 Instagram · TikTok</span><span class="upcoming-meta-tag">🌟 Influencer PR</span></div></div>
     </div>
-
     <div class="upcoming-card">
-      <div class="upcoming-thumb">
-        <div class="upcoming-thumb-inner">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          <span>Activity Image</span>
-        </div>
-        <span class="upcoming-badge badge-soon">Coming Soon</span>
-      </div>
-      <div class="upcoming-body">
-        <div class="upcoming-date">Q3 · 2025</div>
-        <h3 class="upcoming-title">Independence Day Billboard Drive</h3>
-        <p class="upcoming-desc">Premium 14th August billboard and SMD placements across Karachi's key corridors. Limited slots available — brands can now reserve their spot.</p>
-        <div class="upcoming-meta">
-          <span class="upcoming-meta-tag">📍 Karachi</span>
-          <span class="upcoming-meta-tag">🏙️ OOH Branding</span>
-        </div>
-      </div>
+      <div class="upcoming-thumb"><div class="upcoming-thumb-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Activity Image</span></div><span class="upcoming-badge badge-soon">Coming Soon</span></div>
+      <div class="upcoming-body"><div class="upcoming-date">Q3 · 2025</div><h3 class="upcoming-title">Independence Day Billboard Drive</h3><p class="upcoming-desc">Premium 14th August billboard and SMD placements across Karachi's key corridors. Limited slots available — brands can now reserve their spot.</p><div class="upcoming-meta"><span class="upcoming-meta-tag">📍 Karachi</span><span class="upcoming-meta-tag">🏙️ OOH Branding</span></div></div>
     </div>
-
   </div>
 </section>
 
@@ -1281,46 +1450,26 @@
   <div class="team-grid reveal">
     <div class="flip-card">
       <div class="flip-inner">
-        <div class="flip-front">
-          <div class="member-photo-wrap"><div class="member-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Insert Photo</span></div><div class="member-ring"></div></div>
-          <div class="member-front-info"><h3 class="member-name">Ramsha Ansari</h3><span class="member-role">Chief Executive Officer</span><p class="member-click-hint">Click to learn more ↻</p></div>
-        </div>
-        <div class="flip-back">
-          <div class="flip-back-inner"><div class="member-back-icon">👑</div><h3 class="member-name-back">Ramsha Ansari</h3><span class="member-role-back">CEO — Kolachi Events & Marketing</span><p class="member-bio">Ramsha is the visionary founder driving Kolachi's growth across Pakistan. With over a decade of experience in brand strategy and marketing communications, she has built the agency from the ground up into a full-service powerhouse.</p><div class="member-expertise"><span>Brand Strategy</span><span>Business Development</span><span>Leadership</span><span>Client Relations</span></div><p class="member-click-hint-back">Click to flip back ↺</p></div>
-        </div>
+        <div class="flip-front"><div class="member-photo-wrap"><div class="member-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Insert Photo</span></div><div class="member-ring"></div></div><div class="member-front-info"><h3 class="member-name">Ramsha Ansari</h3><span class="member-role">Chief Executive Officer</span><p class="member-click-hint">Click to learn more ↻</p></div></div>
+        <div class="flip-back"><div class="flip-back-inner"><div class="member-back-icon">👑</div><h3 class="member-name-back">Ramsha Ansari</h3><span class="member-role-back">CEO — Kolachi Events & Marketing</span><p class="member-bio">Ramsha is the visionary founder driving Kolachi's growth across Pakistan. With over a decade of experience in brand strategy and marketing communications, she has built the agency from the ground up into a full-service powerhouse.</p><div class="member-expertise"><span>Brand Strategy</span><span>Business Development</span><span>Leadership</span><span>Client Relations</span></div><p class="member-click-hint-back">Click to flip back ↺</p></div></div>
       </div>
     </div>
     <div class="flip-card">
       <div class="flip-inner">
-        <div class="flip-front">
-          <div class="member-photo-wrap"><div class="member-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Insert Photo</span></div><div class="member-ring"></div></div>
-          <div class="member-front-info"><h3 class="member-name">Moaz Shamsi</h3><span class="member-role">Chief Marketing Officer</span><p class="member-click-hint">Click to learn more ↻</p></div>
-        </div>
-        <div class="flip-back">
-          <div class="flip-back-inner"><div class="member-back-icon">📣</div><h3 class="member-name-back">Moaz Shamsi</h3><span class="member-role-back">CMO — Kolachi Events & Marketing</span><p class="member-bio">Moaz architects integrated marketing strategies that span OOH, digital, and experiential channels. His data-first approach ensures every campaign is not just creative — but measurably effective in driving brand growth.</p><div class="member-expertise"><span>Campaign Strategy</span><span>Performance Marketing</span><span>Media Planning</span><span>Analytics</span></div><p class="member-click-hint-back">Click to flip back ↺</p></div>
-        </div>
+        <div class="flip-front"><div class="member-photo-wrap"><div class="member-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Insert Photo</span></div><div class="member-ring"></div></div><div class="member-front-info"><h3 class="member-name">Moaz Shamsi</h3><span class="member-role">Chief Marketing Officer</span><p class="member-click-hint">Click to learn more ↻</p></div></div>
+        <div class="flip-back"><div class="flip-back-inner"><div class="member-back-icon">📣</div><h3 class="member-name-back">Moaz Shamsi</h3><span class="member-role-back">CMO — Kolachi Events & Marketing</span><p class="member-bio">Moaz architects integrated marketing strategies that span OOH, digital, and experiential channels. His data-first approach ensures every campaign is not just creative — but measurably effective in driving brand growth.</p><div class="member-expertise"><span>Campaign Strategy</span><span>Performance Marketing</span><span>Media Planning</span><span>Analytics</span></div><p class="member-click-hint-back">Click to flip back ↺</p></div></div>
       </div>
     </div>
     <div class="flip-card">
       <div class="flip-inner">
-        <div class="flip-front">
-          <div class="member-photo-wrap"><div class="member-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Insert Photo</span></div><div class="member-ring"></div></div>
-          <div class="member-front-info"><h3 class="member-name">Muhammad Ali</h3><span class="member-role">Marketing Manager</span><p class="member-click-hint">Click to learn more ↻</p></div>
-        </div>
-        <div class="flip-back">
-          <div class="flip-back-inner"><div class="member-back-icon">🎯</div><h3 class="member-name-back">Muhammad Ali</h3><span class="member-role-back">Marketing Manager — Kolachi Events & Marketing</span><p class="member-bio">Muhammad Ali oversees day-to-day marketing operations, client campaign execution, and cross-team coordination. With deep expertise in SEO, Meta Ads, and content ecosystems, he ensures campaigns are delivered on time and on brief.</p><div class="member-expertise"><span>SEO & SEM</span><span>Meta & Google Ads</span><span>Content Strategy</span><span>Campaign Execution</span></div><p class="member-click-hint-back">Click to flip back ↺</p></div>
-        </div>
+        <div class="flip-front"><div class="member-photo-wrap"><div class="member-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Insert Photo</span></div><div class="member-ring"></div></div><div class="member-front-info"><h3 class="member-name">Muhammad Ali</h3><span class="member-role">Marketing Manager</span><p class="member-click-hint">Click to learn more ↻</p></div></div>
+        <div class="flip-back"><div class="flip-back-inner"><div class="member-back-icon">🎯</div><h3 class="member-name-back">Muhammad Ali</h3><span class="member-role-back">Marketing Manager — Kolachi Events & Marketing</span><p class="member-bio">Muhammad Ali oversees day-to-day marketing operations, client campaign execution, and cross-team coordination. With deep expertise in SEO, Meta Ads, and content ecosystems, he ensures campaigns are delivered on time and on brief.</p><div class="member-expertise"><span>SEO & SEM</span><span>Meta & Google Ads</span><span>Content Strategy</span><span>Campaign Execution</span></div><p class="member-click-hint-back">Click to flip back ↺</p></div></div>
       </div>
     </div>
     <div class="flip-card">
       <div class="flip-inner">
-        <div class="flip-front">
-          <div class="member-photo-wrap"><div class="member-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Insert Photo</span></div><div class="member-ring"></div></div>
-          <div class="member-front-info"><h3 class="member-name">PR Manager</h3><span class="member-role">Public Relations Manager</span><p class="member-click-hint">Click to learn more ↻</p></div>
-        </div>
-        <div class="flip-back">
-          <div class="flip-back-inner"><div class="member-back-icon">🌐</div><h3 class="member-name-back">PR Manager</h3><span class="member-role-back">PR Manager — Kolachi Events & Marketing</span><p class="member-bio">Our PR Manager leads influencer relations, media outreach, and brand reputation management across Pakistan. With an extensive network in entertainment, journalism, and digital media, they craft narratives that make headlines.</p><div class="member-expertise"><span>Media Relations</span><span>Influencer Management</span><span>Brand Reputation</span><span>Press Campaigns</span></div><p class="member-click-hint-back">Click to flip back ↺</p></div>
-        </div>
+        <div class="flip-front"><div class="member-photo-wrap"><div class="member-photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Insert Photo</span></div><div class="member-ring"></div></div><div class="member-front-info"><h3 class="member-name">PR Manager</h3><span class="member-role">Public Relations Manager</span><p class="member-click-hint">Click to learn more ↻</p></div></div>
+        <div class="flip-back"><div class="flip-back-inner"><div class="member-back-icon">🌐</div><h3 class="member-name-back">PR Manager</h3><span class="member-role-back">PR Manager — Kolachi Events & Marketing</span><p class="member-bio">Our PR Manager leads influencer relations, media outreach, and brand reputation management across Pakistan. With an extensive network in entertainment, journalism, and digital media, they craft narratives that make headlines.</p><div class="member-expertise"><span>Media Relations</span><span>Influencer Management</span><span>Brand Reputation</span><span>Press Campaigns</span></div><p class="member-click-hint-back">Click to flip back ↺</p></div></div>
       </div>
     </div>
   </div>
@@ -1377,6 +1526,7 @@
       <li><a href="#artist">Artists</a></li>
       <li><a href="#social">Social</a></li>
       <li><a href="#mall">Mall</a></li>
+      <li><a href="#done">Our Work</a></li>
       <li><a href="#brands">Brands</a></li>
       <li><a href="#upcoming">Upcoming</a></li>
       <li><a href="#team">Team</a></li>
@@ -1415,29 +1565,79 @@
       const dur   = Math.random() * 12 + 10;
       const colors = ['rgba(124,58,237,0.5)', 'rgba(167,139,250,0.4)', 'rgba(255,45,120,0.35)'];
       const col = colors[Math.floor(Math.random() * colors.length)];
-      p.style.cssText = `
-        width:${size}px; height:${size}px;
-        left:${left}%; bottom:-10px;
-        background:${col};
-        animation-duration:${dur}s;
-        animation-delay:-${delay}s;
-      `;
+      p.style.cssText = `width:${size}px;height:${size}px;left:${left}%;bottom:-10px;background:${col};animation-duration:${dur}s;animation-delay:-${delay}s;`;
       hero.appendChild(p);
     }
   })();
 
-  /* ---- Nav active highlight on scroll ---- */
+  /* ---- Nav active highlight ---- */
   const sections = document.querySelectorAll('section[id], div[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
     let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 140) current = s.id;
-    });
-    navLinks.forEach(a => {
-      a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--glow-purple)' : '';
-    });
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 140) current = s.id; });
+    navLinks.forEach(a => { a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--glow-purple)' : ''; });
   }, { passive: true });
+
+  /* ---- Gallery Modal ---- */
+  (function buildGallery() {
+    // 30 image cards: labels for each slot
+    const labels = [
+      'Influencer Campaign', 'OOH Billboard', 'Mall Activation', 'Brand Launch Event',
+      'SMD Screen Display', 'Concert Production', 'Corporate Conference', 'TikTok Campaign',
+      'Celebrity Partnership', 'Eid Activation', 'Independence Day Drive', 'E-commerce Campaign',
+      'Artist Performance', 'Social Media Shoot', 'Pop-Up Brand Zone', 'Product Launch',
+      'Press Event', 'Fashion Shoot', 'Digital Ad Creative', 'Seasonal Campaign',
+      'TV Media Placement', 'Food Brand Campaign', 'Stadium Branding', 'Retail Activation',
+      'YouTube Channel Launch', 'Instagram Reel Series', 'Brand Identity Reveal',
+      'Gujranwala Campaign', 'Karachi Billboard Blitz', 'Client Brand Collaboration'
+    ];
+
+    const phSVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>`;
+
+    function makeCard(label, num) {
+      const card = document.createElement('div');
+      card.className = 'modal-img-card';
+      // To add an image later from backend, replace the .modal-img-ph div with:
+      // <img src="YOUR_IMAGE_URL" alt="label">
+      card.innerHTML = `
+        <div class="modal-img-ph">${phSVG}<span>${label}</span></div>
+        <div class="modal-img-label"><span>${label}</span></div>
+        <span class="modal-img-num">${String(num).padStart(2,'0')}</span>
+      `;
+      return card;
+    }
+
+    const row1El = document.getElementById('row1');
+    const row2El = document.getElementById('row2');
+
+    // Split 30 cards: first 15 → row 1, last 15 → row 2
+    // Duplicate each set for seamless infinite loop
+    const set1 = labels.slice(0, 15);
+    const set2 = labels.slice(15, 30);
+
+    [...set1, ...set1].forEach((label, i) => row1El.appendChild(makeCard(label, (i % 15) + 1)));
+    [...set2, ...set2].forEach((label, i) => row2El.appendChild(makeCard(label, (i % 15) + 16)));
+  })();
+
+  /* Open / close modal */
+  const modal   = document.getElementById('galleryModal');
+  const openBtn = document.getElementById('openGalleryBtn');
+  const closeBtn= document.getElementById('closeGalleryBtn');
+
+  function openModal() {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
 </script>
 </body>
 </html>
