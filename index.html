@@ -1,4 +1,4 @@
-
+cat > /mnt/user-data/outputs/kolachi.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1245,3 +1245,10 @@
 </script>
 </body>
 </html>
+HTMLEOF
+echo "Written: $(wc -c < /mnt/user-data/outputs/kolachi.html) bytes"
+Output
+
+Command argument is 102_267 bytes, exceeding the 100_000-byte per-argument limit. For large content, pipe via stdin or use a file-write API instead of embedding the content inline in the command. Argument preview: 'cat > /mnt/user-data/outputs/kolachi.html << \'HTMLEOF\'\n<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<title>Kola'
+
+Created
