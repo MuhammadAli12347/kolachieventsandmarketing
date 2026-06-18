@@ -54,6 +54,11 @@
   .nav-links a:hover::after { width: 100%; }
   .nav-cta { background: var(--vivid-purple); color: #fff; border: none; padding: 0.55rem 1.4rem; border-radius: 2px; font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: background 0.2s, transform 0.2s; text-decoration: none; }
   .nav-cta:hover { background: var(--royal-purple); transform: translateY(-1px); }
+  .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+  .nav-social { display: flex; align-items: center; gap: 0.7rem; }
+  .nav-social a { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); border-radius: 50%; color: var(--mid-gray); transition: color 0.2s, border-color 0.2s, transform 0.2s, background 0.2s; }
+  .nav-social a:hover { color: var(--glow-purple); border-color: var(--vivid-purple); background: rgba(124,58,237,0.12); transform: translateY(-2px); }
+  .nav-social a svg { width: 15px; height: 15px; }
 
   .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 8rem 4rem 6rem; position: relative; background: var(--obsidian); overflow: hidden; }
   /* HERO BACKGROUND IMAGE */
@@ -276,18 +281,18 @@
 
   .contact-section { background: var(--deep-purple); border-top: 1px solid var(--border); }
   .contact-inner { max-width: 700px; margin: 0 auto; text-align: center; }
-  .contact-form { display: flex; flex-direction: column; gap: 1rem; margin-top: 2.5rem; text-align: left; }
-  .form-row { display: flex; gap: 1rem; }
-  .form-row .form-group { flex: 1; }
-  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-  .form-group label { font-family: 'Space Grotesk', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid-gray); }
-  .form-group input, .form-group textarea, .form-group select { background: rgba(5,4,10,0.6); border: 1px solid var(--border); border-radius: 2px; padding: 0.75rem 1rem; color: var(--ghost-white); font-family: 'Inter', sans-serif; font-size: 0.9rem; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
-  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--vivid-purple); box-shadow: 0 0 0 2px rgba(124,58,237,0.15); }
-  .form-group textarea { min-height: 120px; resize: vertical; }
-  .form-group select { cursor: pointer; }
-  .form-group select option { background: var(--deep-purple); }
-  .form-submit { background: linear-gradient(135deg, var(--vivid-purple), var(--royal-purple)); color: #fff; padding: 1rem 2.5rem; border: none; border-radius: 2px; font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; box-shadow: 0 0 30px rgba(124,58,237,0.4); transition: box-shadow 0.2s, transform 0.2s; align-self: flex-start; margin-top: 0.5rem; }
-  .form-submit:hover { box-shadow: 0 0 60px rgba(124,58,237,0.7); transform: translateY(-3px); }
+  .contact-cards { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; margin-top: 3rem; }
+  .contact-card { flex: 1; min-width: 220px; max-width: 260px; background: rgba(124,58,237,0.08); border: 1px solid var(--border); border-radius: 10px; padding: 2.2rem 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 0.9rem; text-decoration: none; transition: border-color 0.3s, transform 0.3s, background 0.3s, box-shadow 0.3s; }
+  .contact-card:hover { border-color: var(--vivid-purple); transform: translateY(-5px); background: rgba(124,58,237,0.16); box-shadow: 0 16px 40px rgba(124,58,237,0.25); }
+  .contact-card-icon { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, rgba(74,29,150,0.5), rgba(124,58,237,0.3)); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; transition: transform 0.3s; }
+  .contact-card:hover .contact-card-icon { transform: scale(1.1) rotate(-5deg); }
+  .contact-card-icon svg { width: 22px; height: 22px; color: var(--glow-purple); }
+  .contact-card-label { font-family: 'Space Grotesk', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid-gray); }
+  .contact-card-value { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 600; color: var(--ghost-white); word-break: break-word; }
+  .contact-social-row { display: flex; gap: 0.85rem; justify-content: center; margin-top: 2.5rem; }
+  .contact-social-row a { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); border-radius: 50%; color: var(--mid-gray); transition: color 0.2s, border-color 0.2s, transform 0.2s, background 0.2s; }
+  .contact-social-row a:hover { color: var(--glow-purple); border-color: var(--vivid-purple); background: rgba(124,58,237,0.14); transform: translateY(-3px); }
+  .contact-social-row a svg { width: 19px; height: 19px; }
 
   footer { background: #020108; border-top: 1px solid var(--border); padding: 3rem 4rem; }
   .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
@@ -297,6 +302,11 @@
   .footer-links a { font-family: 'Space Grotesk', sans-serif; font-size: 0.78rem; letter-spacing: 0.06em; color: var(--mid-gray); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--glow-purple); }
   .footer-copy { font-size: 0.78rem; color: rgba(167,139,250,0.4); font-family: 'Space Grotesk', sans-serif; }
+  .footer-bottom { max-width: 1200px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.2rem; }
+  .footer-social { display: flex; gap: 0.7rem; }
+  .footer-social a { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); border-radius: 50%; color: var(--mid-gray); transition: color 0.2s, border-color 0.2s, transform 0.2s, background 0.2s; }
+  .footer-social a:hover { color: var(--glow-purple); border-color: var(--vivid-purple); background: rgba(124,58,237,0.14); transform: translateY(-2px); }
+  .footer-social a svg { width: 16px; height: 16px; }
 
   .purple-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--vivid-purple), transparent); opacity: 0.4; margin: 0 4rem; }
   .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
@@ -305,6 +315,7 @@
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
+    .nav-social { display: none; }
     section, .team-section, .upcoming-section, .brands-section, .done-section { padding: 4rem 1.5rem; }
     .hero { padding: 7rem 1.5rem 4rem; }
     .service-layout { flex-direction: column !important; }
@@ -315,6 +326,7 @@
     .form-row { flex-direction: column; }
     footer { padding: 2.5rem 1.5rem; }
     .footer-inner { flex-direction: column; text-align: center; }
+    .footer-bottom { flex-direction: column; text-align: center; }
     .services-strip { padding: 2.5rem 1.5rem; }
     .purple-divider { margin: 0 1.5rem; }
     .team-grid { grid-template-columns: 1fr 1fr; }
@@ -322,6 +334,8 @@
     .done-inner { flex-direction: column; gap: 2.5rem; }
     .done-left { flex: none; width: 100%; }
     .done-stats-row { gap: 1.5rem; }
+    .contact-cards { flex-direction: column; align-items: center; }
+    .contact-card { width: 100%; max-width: 320px; }
   }
   @media (max-width: 600px) {
     .why-grid { grid-template-columns: 1fr; }
@@ -357,7 +371,15 @@
     <li><a href="#team">Team</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Get in Touch</a>
+  <div class="nav-right">
+    <div class="nav-social">
+      <a href="#" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.84c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"/></svg></a>
+      <a href="#" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="#" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 2h-3.2v13.9c0 1.6-1.3 2.9-2.9 2.9a2.9 2.9 0 1 1 0-5.8c.3 0 .6 0 .9.1V9.8a6.2 6.2 0 0 0-.9-.1A6.2 6.2 0 0 0 4.3 16a6.2 6.2 0 0 0 6.2 6.2 6.2 6.2 0 0 0 6.2-6.2V8.4a8 8 0 0 0 4.6 1.5V6.6a4.8 4.8 0 0 1-4.7-4.6z"/></svg></a>
+      <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3.2 8.98h3.56V21H3.2V8.98zm6.45 0h3.41v1.64h.05c.48-.9 1.64-1.84 3.38-1.84 3.62 0 4.29 2.38 4.29 5.48V21h-3.56v-5.95c0-1.42-.03-3.24-1.98-3.24-1.98 0-2.28 1.55-2.28 3.14V21H9.65V8.98z"/></svg></a>
+    </div>
+    <a href="#contact" class="nav-cta">Get in Touch</a>
+  </div>
 </nav>
 
 <!-- ═══════════════════════════════════════════════════════
@@ -1018,32 +1040,29 @@
     <div class="section-tag">Let's Talk</div>
     <h2 class="section-title">Start Your Campaign</h2>
     <p class="section-desc">Tell us what you're building and we'll put together a proposal within 48 hours.</p>
-    <div class="contact-form">
-      <div class="form-row">
-        <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your name"></div>
-        <div class="form-group"><label>Company</label><input type="text" placeholder="Brand or company"></div>
-      </div>
-      <div class="form-row">
-        <div class="form-group"><label>Email</label><input type="email" placeholder="you@company.com"></div>
-        <div class="form-group"><label>Phone</label><input type="tel" placeholder="+92 300 000 0000"></div>
-      </div>
-      <div class="form-group">
-        <label>Service of Interest</label>
-        <select>
-          <option value="" disabled selected>Select a service</option>
-          <option>Influencer PR</option>
-          <option>Out-of-Home (OOH) Branding</option>
-          <option>E-commerce for Brands</option>
-          <option>Digital & Performance Marketing</option>
-          <option>Event Management</option>
-          <option>Artist Management</option>
-          <option>Social Media Management</option>
-          <option>Mall Management & SMD Branding</option>
-          <option>Full-Service Package</option>
-        </select>
-      </div>
-      <div class="form-group"><label>Tell Us About Your Project</label><textarea placeholder="Budget, timeline, goals — the more detail, the better your proposal."></textarea></div>
-      <button class="form-submit" type="button">Send Enquiry →</button>
+    <div class="contact-cards">
+      <a href="tel:+923000000000" class="contact-card">
+        <div class="contact-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.31 1.9.57 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.26 1.85.44 2.81.57A2 2 0 0 1 22 16.92z"/></svg></div>
+        <span class="contact-card-label">Call Us</span>
+        <span class="contact-card-value">+92 300 000 0000</span>
+      </a>
+      <a href="mailto:info@kolachimarketing.com" class="contact-card">
+        <div class="contact-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+        <span class="contact-card-label">Email Us</span>
+        <span class="contact-card-value">info@kolachimarketing.com</span>
+      </a>
+      <a href="https://maps.google.com" target="_blank" rel="noopener" class="contact-card">
+        <div class="contact-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <span class="contact-card-label">Visit Us</span>
+        <span class="contact-card-value">Karachi, Pakistan</span>
+      </a>
+    </div>
+    <div class="contact-social-row">
+      <a href="#" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.84c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"/></svg></a>
+      <a href="#" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="#" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 2h-3.2v13.9c0 1.6-1.3 2.9-2.9 2.9a2.9 2.9 0 1 1 0-5.8c.3 0 .6 0 .9.1V9.8a6.2 6.2 0 0 0-.9-.1A6.2 6.2 0 0 0 4.3 16a6.2 6.2 0 0 0 6.2 6.2 6.2 6.2 0 0 0 6.2-6.2V8.4a8 8 0 0 0 4.6 1.5V6.6a4.8 4.8 0 0 1-4.7-4.6z"/></svg></a>
+      <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3.2 8.98h3.56V21H3.2V8.98zm6.45 0h3.41v1.64h.05c.48-.9 1.64-1.84 3.38-1.84 3.62 0 4.29 2.38 4.29 5.48V21h-3.56v-5.95c0-1.42-.03-3.24-1.98-3.24-1.98 0-2.28 1.55-2.28 3.14V21H9.65V8.98z"/></svg></a>
+      <a href="#" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.5 6.2a2.8 2.8 0 0 0-2-2C18.7 3.7 12 3.7 12 3.7s-6.7 0-8.5.5a2.8 2.8 0 0 0-2 2A29.4 29.4 0 0 0 1 12a29.4 29.4 0 0 0 .5 5.8 2.8 2.8 0 0 0 2 2c1.8.5 8.5.5 8.5.5s6.7 0 8.5-.5a2.8 2.8 0 0 0 2-2A29.4 29.4 0 0 0 23 12a29.4 29.4 0 0 0-.5-5.8zM9.8 15.5V8.5L15.8 12z"/></svg></a>
     </div>
   </div>
 </section>
@@ -1067,7 +1086,16 @@
       <li><a href="#team">Team</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+  </div>
+  <div class="footer-bottom">
     <p class="footer-copy">© 2025 Kolachi Events & Marketing. Karachi, Pakistan.</p>
+    <div class="footer-social">
+      <a href="#" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.84c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"/></svg></a>
+      <a href="#" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="#" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 2h-3.2v13.9c0 1.6-1.3 2.9-2.9 2.9a2.9 2.9 0 1 1 0-5.8c.3 0 .6 0 .9.1V9.8a6.2 6.2 0 0 0-.9-.1A6.2 6.2 0 0 0 4.3 16a6.2 6.2 0 0 0 6.2 6.2 6.2 6.2 0 0 0 6.2-6.2V8.4a8 8 0 0 0 4.6 1.5V6.6a4.8 4.8 0 0 1-4.7-4.6z"/></svg></a>
+      <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3.2 8.98h3.56V21H3.2V8.98zm6.45 0h3.41v1.64h.05c.48-.9 1.64-1.84 3.38-1.84 3.62 0 4.29 2.38 4.29 5.48V21h-3.56v-5.95c0-1.42-.03-3.24-1.98-3.24-1.98 0-2.28 1.55-2.28 3.14V21H9.65V8.98z"/></svg></a>
+      <a href="#" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.5 6.2a2.8 2.8 0 0 0-2-2C18.7 3.7 12 3.7 12 3.7s-6.7 0-8.5.5a2.8 2.8 0 0 0-2 2A29.4 29.4 0 0 0 1 12a29.4 29.4 0 0 0 .5 5.8 2.8 2.8 0 0 0 2 2c1.8.5 8.5.5 8.5.5s6.7 0 8.5-.5a2.8 2.8 0 0 0 2-2A29.4 29.4 0 0 0 23 12a29.4 29.4 0 0 0-.5-5.8zM9.8 15.5V8.5L15.8 12z"/></svg></a>
+    </div>
   </div>
 </footer>
 
